@@ -15,12 +15,12 @@ export class UsersController {
   }
 
   @Get()
-  getUsers(@Param('id', ParseIntPipe) id: number) {
-    if (id) {
-      return this.usersService.getOneUser(id)
-    }
-
-    return this.usersService.getAllUsers();
+  getUsers() {
+    return this.usersService.findAllUsers();
   }
 
+  @Get(':id')
+  getOneUser(@Param('id', ParseIntPipe) id: number) {
+    return this.usersService.findOneUser(id)
+  }
 }
