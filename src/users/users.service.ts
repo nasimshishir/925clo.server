@@ -3,6 +3,8 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Users } from './user.entity';
 import { Repository } from 'typeorm';
+import { CreateUserFormat } from './utils/types';
+import { encodePassword } from 'src/auth/utils/bcrypt';
 
 @Injectable()
 export class UsersService {
@@ -11,16 +13,15 @@ export class UsersService {
     @InjectRepository(Users) private usersRepository: Repository<Users>,
   ) { }
 
-  async createUser(userDetails: CreateUserDto) {
-    console.log("service user data", userDetails);
-    const newUser = this.usersRepository.create(userDetails)
-    console.log("service new user", newUser);
+  async createUser(userDetails: CreateUserFormat) {
+    const password = encodePassword(userDetails.password)
+    const newUser = this.usersRepository.create({ ...userDetails, password });
     const user = await this.usersRepository.save(newUser)
     return user;
   }
 
 
-  async findAllUsers(): Promise<Users[]> {
+  async findAllUsers(): Promise<any> {
     const users = await this.usersRepository.find();
     return users;
   }
