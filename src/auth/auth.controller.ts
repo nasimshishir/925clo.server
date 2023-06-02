@@ -9,7 +9,7 @@ export class AuthController {
   @UseGuards(AuthGuard('local'))
   @Post('login')
   login(@Request() request): any {
-    return request.user;
+    return (request.user);
   }
 
   // @Get('protected')
