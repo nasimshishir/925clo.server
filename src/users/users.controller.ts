@@ -1,24 +1,25 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UsePipes, ValidationPipe, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, ParseIntPipe, UseGuards } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
+import { JwtGuard } from 'src/auth/guards/jwt-auth.guard';
 
 @Controller('users')
 export class UsersController {
   constructor(private usersService: UsersService) { }
 
   @Post()
-  @UsePipes(new ValidationPipe())
-  create(@Body() userData: CreateUserDto) {
-    return this.usersService.createUser(userData);
+  async create(@Body() userData: CreateUserDto) {
+    return await this.usersService.createUser(userData);
   }
 
+  @UseGuards(JwtGuard)
   @Get()
-  getUsers() {
-    return this.usersService.findAllUsers();
+  async getUsers() {
+    return await this.usersService.findAllUsers();
   }
 
   @Get(':id')
-  getOneUser(@Param('id', ParseIntPipe) id: number) {
-    return this.usersService.findOneUser(id)
+  async getOneUser(@Param('id', ParseIntPipe) id: number) {
+    return await this.usersService.findOneUser(id);
   }
 }

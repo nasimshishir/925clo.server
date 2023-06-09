@@ -10,7 +10,6 @@ import { ProductsModule } from './products/products.module';
 
 @Module({
   imports: [
-    ConfigModule,
     ConfigModule.forRoot({
       envFilePath: ['.env'],
     }),

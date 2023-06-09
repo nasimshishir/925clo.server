@@ -1,5 +1,4 @@
-import { Injectable } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
+import { Injectable, UseGuards } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Users } from './user.entity';
 import { Repository } from 'typeorm';
@@ -14,22 +13,27 @@ export class UsersService {
   ) { }
 
   async createUser(userDetails: CreateUserFormat) {
-    const password = encodePassword(userDetails.password)
-    const newUser = this.usersRepository.create({ ...userDetails, password });
+    const hashedPassword = encodePassword(userDetails.password)
+    const newUser = this.usersRepository.create({ ...userDetails, password: hashedPassword });
     const user = await this.usersRepository.save(newUser)
-    return user;
+    const { password, username, ...rest } = user;
+    return rest;
   }
 
-
-  async findAllUsers(): Promise<any> {
-    const users = await this.usersRepository.find();
+  async findAllUsers(): Promise<Users[]> {
+    const users = await this.usersRepository.find({
+      select: {
+        id: true,
+        email: true
+      }
+    })
     return users;
   }
 
 
   async findOneUser(id: number): Promise<Users> {
     try {
-      const user = await this.usersRepository.findOneByOrFail({ id });
+      const user = await this.usersRepository.findOne({ select: ['id', 'email'], where: { id } });
       if (user) {
         return user;
       } else 'User not found';
@@ -43,8 +47,8 @@ export class UsersService {
     }
   }
 
-  searchOne(username: string): Promise<Users | undefined> {
-    return this.usersRepository.findOneBy({ username });
+  async searchOne(username: string): Promise<Users | undefined> {
+    return await this.usersRepository.findOne({ where: { username: username } });
 
   }
 }
