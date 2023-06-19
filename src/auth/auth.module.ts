@@ -7,24 +7,24 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Users } from 'src/users/user.entity';
 import { localAuthStrategy } from './strategies/local.strategy';
 import { JwtModule } from '@nestjs/jwt';
-import { JwtStrategy } from './strategies/jwt-stategy';
+import { JwtStrategy } from './strategies/jwt.stategy';
+import jwtConfig from 'jwtconfig';
+import { RefreshJwtStrategy } from './strategies/refreshToken.strategy';
 
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([Users]),
     PassportModule,
-    JwtModule.register({
-      secret: `${process.env.ACCESS_KEY}`,
-      signOptions: { expiresIn: '3600s' }
-    })
+    JwtModule.register(jwtConfig)
   ],
   controllers: [AuthController],
   providers: [
     AuthService,
-    UsersService,
     localAuthStrategy,
-    JwtStrategy
-  ]
+    JwtStrategy,
+    RefreshJwtStrategy,
+    UsersService,
+  ],
 })
 export class AuthModule { }

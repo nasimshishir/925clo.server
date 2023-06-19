@@ -9,7 +9,7 @@ import { JwtService } from '@nestjs/jwt'
 export class AuthService {
     constructor(
         private readonly usersService: UsersService,
-        private jwtService: JwtService
+        private readonly jwtService: JwtService
     ) { }
 
     async validateUser(username: string, pass: string): Promise<any> {
@@ -28,8 +28,6 @@ export class AuthService {
     }
 
     async login(user: Users) {
-        console.log(user);
-
         const payload = {
             username: user.username,
             user: {
@@ -38,6 +36,20 @@ export class AuthService {
         };
         return {
             ...user,
+            accessToken: this.jwtService.sign(payload),
+            refreshToken: this.jwtService.sign(payload, { expiresIn: '7d' })
+        }
+    }
+
+
+    async refreshToken(user: Users) {
+        const payload = {
+            username: user.username,
+            user: {
+                email: user.email,
+            }
+        };
+        return {
             accessToken: this.jwtService.sign(payload)
         }
     }
