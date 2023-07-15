@@ -19,7 +19,7 @@ export class AuthService {
         if (user) {
             const matched = comparePasswords(pass, user.password);
             if (matched) {
-                const { password, username, ...rest } = user;
+                const { password, email, ...rest } = user;
                 return rest;
             }
         }
@@ -29,9 +29,9 @@ export class AuthService {
 
     async login(user: Users) {
         const payload = {
-            username: user.username,
+            email: user.email,
             user: {
-                email: user.email,
+                name: user.name,
             }
         };
         return {
@@ -44,9 +44,9 @@ export class AuthService {
 
     async refreshToken(user: Users) {
         const payload = {
-            username: user.username,
+            email: user.email,
             user: {
-                email: user.email,
+                name: user.name,
             }
         };
         return {

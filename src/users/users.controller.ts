@@ -9,10 +9,6 @@ export class UsersController {
     private usersService: UsersService,
   ) { }
 
-  @Post()
-  async create(@Body() userData: CreateUserDto) {
-    return await this.usersService.createUser(userData);
-  }
 
   @UseGuards(JwtGuard)
   @Get()
@@ -20,6 +16,7 @@ export class UsersController {
     return await this.usersService.findAllUsers();
   }
 
+  @UseGuards(JwtGuard)
   @Get(':id')
   async getOneUser(@Param('id', ParseIntPipe) id: number) {
     return await this.usersService.findOneUser(id);

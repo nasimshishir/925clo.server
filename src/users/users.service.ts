@@ -16,7 +16,7 @@ export class UsersService {
     const hashedPassword = encodePassword(userDetails.password)
     const newUser = this.usersRepository.create({ ...userDetails, password: hashedPassword });
     const user = await this.usersRepository.save(newUser)
-    const { password, username, ...rest } = user;
+    const { password, email, ...rest } = user;
     return rest;
   }
 
@@ -24,7 +24,7 @@ export class UsersService {
     const users = await this.usersRepository.find({
       select: {
         id: true,
-        email: true
+        name: true
       }
     })
     return users;
@@ -47,8 +47,8 @@ export class UsersService {
     }
   }
 
-  async searchOne(username: string): Promise<Users | undefined> {
-    return await this.usersRepository.findOne({ where: { username: username } });
+  async searchOne(email: string): Promise<Users | undefined> {
+    return await this.usersRepository.findOne({ where: { email: email } });
 
   }
 }
