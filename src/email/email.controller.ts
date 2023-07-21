@@ -1,18 +1,15 @@
-import { Controller, Post } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { EmailService } from './email.service';
 
 @Controller('email')
 export class EmailController {
-    constructor(private readonly emailConfirmationService: EmailService) { }
+    constructor(
+        private readonly emailService: EmailService,
+    ) { }
 
-    @Post()
-    async confirm(uniqueString: string) {
-        const isVerified = await this.emailConfirmationService.verify(uniqueString);
-
-        if (isVerified) {
-            return { message: 'Email verified successfully!' };
-        } else {
-            return { message: 'Invalid verification link.' };
-        }
+    @Get('confirm_email')
+    async sendEmail(@Query() email: string) {
+        return this.emailService.sendConfirmationEmail(email)
     }
+
 }

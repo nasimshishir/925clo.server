@@ -1,20 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { MailerService } from '@nestjs-modules/mailer'
+import { error } from 'console';
 
 @Injectable()
 export class EmailService {
     constructor(private readonly mailerService: MailerService) { }
 
-    async sendConfirmationEmail(email: string, uniqueString: string) {
-        const mailOptions = {
-            from: '"Your Name" <your@email.com>',
+    sendConfirmationEmail(email: string,): void {
+        this.mailerService.sendMail({
             to: email,
+            from: 'get@952clo.com',
             subject: 'Email Verification',
-            text: `Please click on the following link to verify your email address:
-
-        http://localhost:3000/email/verify/52526`,
-        };
-
-        await this.mailerService.sendMail(mailOptions);
+            template: '/welcome'
+        });
     }
 }

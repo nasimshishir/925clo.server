@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
-import config from 'ormconfig';
+import ormConfig from 'ormconfig';
 import { ConfigModule } from '@nestjs/config';
 import { ProductsModule } from './products/products.module';
 import { EmailModule } from './email/email.module';
@@ -14,7 +14,7 @@ import { EmailModule } from './email/email.module';
     ConfigModule.forRoot({
       envFilePath: ['.env'],
     }),
-    TypeOrmModule.forRoot(config),
+    TypeOrmModule.forRoot(ormConfig),
     UsersModule,
     AuthModule,
     ProductsModule,
