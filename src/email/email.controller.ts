@@ -8,7 +8,9 @@ export class EmailController {
     ) { }
 
     @Get('confirm_email')
-    async sendEmail(@Query() email: string) {
+    async sendEmail(@Query('email') email: string) {
+        console.log(email, 'controller');
+
         return this.emailService.sendConfirmationEmail(email)
     }
 

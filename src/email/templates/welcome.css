@@ -1,0 +1,17 @@
+body {
+    background-color: #F25200;
+
+}
+
+.base {
+    height: 70vh;
+}
+
+.hero_text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 60px;
+}
+
+footer {
+    background-color: #fff;
+}
