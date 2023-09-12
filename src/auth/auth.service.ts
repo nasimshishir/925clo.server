@@ -19,7 +19,7 @@ export class AuthService {
         if (user) {
             const matched = comparePasswords(pass, user.password);
             if (matched) {
-                const { password, email, ...rest } = user;
+                const { password, ...rest } = user;
                 return rest;
             }
         }

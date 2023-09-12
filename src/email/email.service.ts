@@ -12,11 +12,12 @@ export class EmailService {
             to: email,
             from: 'get@952clo.com',
             subject: 'Email Verification',
-            text: 'Checking',
-            template: 'welcome'
+            template: 'welcome',
         }
 
-        await this.mailerService.sendMail(message);
+        await this.mailerService.sendMail(message).catch((err) => {
+            console.error(err);
+        });
         return 'success'
 
     }
