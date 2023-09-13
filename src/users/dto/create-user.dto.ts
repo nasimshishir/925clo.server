@@ -10,5 +10,8 @@ export class CreateUserDto {
     email: string;
 
     @IsNotEmpty()
+    emailVerified: boolean;
+
+    @IsNotEmpty()
     password: string;
 }
