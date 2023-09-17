@@ -4,13 +4,11 @@ import { Repository } from 'typeorm';
 import { CreateUserFormat } from './utils/types';
 import { encodePassword } from 'src/auth/utils/bcrypt';
 import { Users } from './entities/user.entity';
-import { StyleProfile } from './entities/styleProfile.entity';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(Users) private usersRepository: Repository<Users>,
-    @InjectRepository(StyleProfile) private readonly styleProfileRepository: Repository<StyleProfile>,
   ) { }
 
   async createUser(userDetails: CreateUserFormat) {
@@ -32,14 +30,6 @@ export class UsersService {
         name: true
       }
     })
-    const styleProfile = await this.styleProfileRepository.find(
-      {
-        select: {
-          id: true,
-          gender: true,
-        }
-      }
-    )
     return users;
   }
 

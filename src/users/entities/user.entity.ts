@@ -1,5 +1,5 @@
 import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import { UserProfile } from "./userProfile.entity";
+import { StyleProfile } from "../../user-profile/entities/styleProfile.entity";
 
 @Entity()
 export class Users {
@@ -18,8 +18,8 @@ export class Users {
     @Column()
     emailVerified: boolean;
 
-    @OneToOne(() => UserProfile, styleProfile => styleProfile.user)
-    userProfile: UserProfile
+    @OneToOne(() => StyleProfile, StyleProfile => StyleProfile.user)
+    styleProfile: StyleProfile;
 
     @Column({ default: () => 'CURRENT_TIMESTAMP' })
     createdAt: Date;

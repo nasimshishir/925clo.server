@@ -8,6 +8,7 @@ import ormConfig from 'ormconfig';
 import { ConfigModule } from '@nestjs/config';
 import { ProductsModule } from './products/products.module';
 import { EmailModule } from './email/email.module';
+import { UserProfileModule } from './user-profile/user-profile.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { EmailModule } from './email/email.module';
     AuthModule,
     ProductsModule,
     EmailModule,
+    UserProfileModule,
   ],
   controllers: [AppController],
   providers: [AppService],
