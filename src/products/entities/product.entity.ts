@@ -6,37 +6,28 @@ export class Products {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({ nullable: true })
     product_id: string;
 
-    @Column({ unique: true })
+    @Column({ nullable: true })
     product_title: string;
 
-    @Column({ unique: true })
+    @Column({ nullable: true })
     description: string;
 
-    @Column()
+    @Column({ nullable: true })
     image: string;
 
-    @Column()
+    @Column({ nullable: true })
     price: string;
 
-    @Column()
+    @Column({ nullable: true })
     product_category: string;
 
-    @Column()
-    type: string;
-
-    @Column()
+    @Column({ nullable: true })
     gender: string;
 
-    @Column()
-    brand: string;
-
-    @Column()
-    season: string;
-
-    @Column()
+    @Column({ unique: true, nullable: true })
     product_url: string;
 
     @Column({ default: () => 'CURRENT_TIMESTAMP' })
