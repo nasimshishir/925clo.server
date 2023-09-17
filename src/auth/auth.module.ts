@@ -10,11 +10,13 @@ import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './strategies/jwt.stategy';
 import jwtConfig from 'jwtconfig';
 import { RefreshJwtStrategy } from './strategies/refreshToken.strategy';
+import { StyleProfile } from 'src/users/entities/styleProfile.entity';
+import { UserProfile } from 'src/users/entities/userProfile.entity';
 
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Users]),
+    TypeOrmModule.forFeature([Users, StyleProfile, UserProfile]),
     PassportModule,
     JwtModule.register(jwtConfig)
   ],
