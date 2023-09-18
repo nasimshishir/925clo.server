@@ -15,7 +15,7 @@ import { StyleProfile } from 'src/user-profile/entities/styleProfile.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Users, StyleProfile]),
+    TypeOrmModule.forFeature([Users]),
     PassportModule,
     JwtModule.register(jwtConfig)
   ],

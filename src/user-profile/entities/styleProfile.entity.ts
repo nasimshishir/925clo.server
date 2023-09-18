@@ -1,5 +1,5 @@
-import { Users } from "src/users/entities/user.entity";
 import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { UserProfile } from "./user-profile.entity";
 
 @Entity()
 export class StyleProfile {
@@ -7,9 +7,8 @@ export class StyleProfile {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @OneToOne(() => Users, user => user.styleProfile)
-    @JoinColumn()
-    user: Users
+    @OneToOne(() => UserProfile, profile => profile.styleProfile)
+    profile: UserProfile;
 
     @Column()
     location: string;

@@ -6,7 +6,7 @@ import { Users } from './entities/user.entity';
 import { StyleProfile } from '../user-profile/entities/styleProfile.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Users, StyleProfile])],
+  imports: [TypeOrmModule.forFeature([Users])],
   controllers: [UsersController],
   providers: [UsersService],
   exports: [UsersService]
