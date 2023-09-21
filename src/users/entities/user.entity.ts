@@ -1,5 +1,6 @@
-import { UserProfile } from "src/user-profile/entities/user-profile.entity";
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Wishlist } from "src/users/entities/wishlist.entity";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn } from "typeorm";
+import { StyleProfile } from "./style-profile.entity";
 
 @Entity()
 export class Users {
@@ -7,7 +8,7 @@ export class Users {
     id: number;
 
     @Column()
-    name: string;
+    name: string
 
     @Column({ unique: true })
     email: string;
@@ -18,13 +19,16 @@ export class Users {
     @Column()
     emailVerified: boolean;
 
-    @OneToOne(() => UserProfile, userProfile => userProfile.user)
-    profile: UserProfile;
+    @OneToOne(() => StyleProfile, styleProfile => styleProfile.user)
+    styleProfile: StyleProfile;
 
-    @Column({ default: () => 'CURRENT_TIMESTAMP' })
-    createdAt: Date;
+    @OneToMany(() => Wishlist, wishlist => wishlist.user)
+    wishlist: Wishlist[];
 
-    @Column({ default: () => 'CURRENT_TIMESTAMP' })
-    updateddAt: Date;
+    @CreateDateColumn()
+    createdAt: Timestamp;
+
+    @UpdateDateColumn()
+    updateddAt: Timestamp;
 
 }

@@ -3,22 +3,25 @@ import { UsersService } from 'src/users/users.service';
 import { comparePasswords } from './utils/bcrypt';
 import { Users } from 'src/users/entities/user.entity';
 import { JwtService } from '@nestjs/jwt'
+import { Timestamp } from 'typeorm';
+import { EmailService } from 'src/email/email.service';
+import * as crypto from 'crypto';
 
 
 @Injectable()
 export class AuthService {
     constructor(
         private readonly usersService: UsersService,
-        private readonly jwtService: JwtService
+        private readonly jwtService: JwtService,
+        private readonly emailService: EmailService
     ) { }
 
     async validateUser(username: string, pass: string): Promise<{
         id: number;
-        name: string;
         email: string;
         emailVerified: boolean;
-        createdAt: Date;
-        updateddAt: Date;
+        createdAt: Timestamp;
+        updateddAt: Timestamp;
     } | null> {
 
         const user = await this.usersService.searchOne(username);
@@ -35,12 +38,7 @@ export class AuthService {
     }
 
     async login(user: Users) {
-        const payload = {
-            email: user.email,
-            user: {
-                name: user.name,
-            }
-        };
+        const payload = user;
         return {
             ...payload,
             accessToken: this.jwtService.sign(payload),
@@ -49,15 +47,20 @@ export class AuthService {
     }
 
 
-    async refreshToken(user: Users) {
+    async refreshToken(user) {
         const payload = {
-            email: user.email,
-            user: {
-                name: user.name,
-            }
+            user: user.email,
+            name: user.name
         };
-        return {
-            accessToken: this.jwtService.sign(payload)
-        }
+        return { accessToken: this.jwtService.sign(payload) }
+
     }
+
+    async requestPasswordReset(email: string): Promise<void> {
+        const resetToken = crypto.randomBytes(20).toString('hex');
+        await this.usersService.saveResetToken(email, resetToken);
+        await this.emailService.sendResetPasswordEmail(email, resetToken);
+    }
+
+
 }

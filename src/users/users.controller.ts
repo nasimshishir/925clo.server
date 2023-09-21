@@ -21,4 +21,10 @@ export class UsersController {
   async getOneUser(@Param('id', ParseIntPipe) id: number) {
     return await this.usersService.findOneUser(id);
   }
+
+  @UseGuards(JwtGuard)
+  @Get(':id/style-profile')
+  async getStyleProfile(@Param('id', ParseIntPipe) id: number) {
+    return await this.usersService.findOneUser(id);
+  }
 }

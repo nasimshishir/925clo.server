@@ -3,10 +3,10 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import { Users } from './entities/user.entity';
-import { StyleProfile } from '../user-profile/entities/styleProfile.entity';
+import { ForgottenPassword } from './entities/reset-passoword.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Users])],
+  imports: [TypeOrmModule.forFeature([Users, ForgottenPassword])],
   controllers: [UsersController],
   providers: [UsersService],
   exports: [UsersService]

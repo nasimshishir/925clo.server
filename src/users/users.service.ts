@@ -4,11 +4,13 @@ import { Repository } from 'typeorm';
 import { CreateUserFormat } from './utils/types';
 import { encodePassword } from 'src/auth/utils/bcrypt';
 import { Users } from './entities/user.entity';
+import { ForgottenPassword } from './entities/reset-passoword.entity';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(Users) private usersRepository: Repository<Users>,
+    @InjectRepository(ForgottenPassword) private forgottenPasswordRepository: Repository<ForgottenPassword>,
   ) { }
 
   async createUser(userDetails: CreateUserFormat) {
@@ -27,7 +29,7 @@ export class UsersService {
     const users = await this.usersRepository.find({
       select: {
         id: true,
-        name: true
+        email: true
       }
     })
     return users;
@@ -57,4 +59,16 @@ export class UsersService {
     }
     return undefined;
   }
+
+  async saveResetToken(email: string, token: string) {
+    const user = await this.forgottenPasswordRepository.findOne({ where: { email } });
+    if (user) {
+      user.resetToken = token;
+      await this.forgottenPasswordRepository.save(user);
+    } else {
+      const resetPassword = this.forgottenPasswordRepository.create({ email, resetToken: token })
+      return await this.forgottenPasswordRepository.save(resetPassword);
+    }
+  }
+
 }

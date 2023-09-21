@@ -21,4 +21,8 @@ export class EmailService {
         return 'success'
 
     }
+
+    async sendResetPasswordEmail(email: string, resetToken: string) {
+        return email;
+    }
 }
