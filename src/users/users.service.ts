@@ -4,13 +4,11 @@ import { Repository } from 'typeorm';
 import { CreateUserFormat } from './utils/types';
 import { encodePassword } from 'src/auth/utils/bcrypt';
 import { Users } from './entities/user.entity';
-import { ForgottenPassword } from './entities/reset-passoword.entity';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(Users) private usersRepository: Repository<Users>,
-    @InjectRepository(ForgottenPassword) private forgottenPasswordRepository: Repository<ForgottenPassword>,
   ) { }
 
   async createUser(userDetails: CreateUserFormat) {
@@ -56,18 +54,41 @@ export class UsersService {
     const user = await this.usersRepository.findOne({ where: { email: email } });
     if (user) {
       return user;
+    } else {
+      throw new HttpException('User not found', HttpStatus.FOUND)
     }
-    return undefined;
+
   }
 
   async saveResetToken(email: string, token: string) {
-    const user = await this.forgottenPasswordRepository.findOne({ where: { email } });
+    const user = await this.usersRepository.findOne({ where: { email } });
     if (user) {
-      user.resetToken = token;
-      await this.forgottenPasswordRepository.save(user);
+      user.passwordResetToken = token;
+      await this.usersRepository.save(user);
+      return user.passwordResetToken
     } else {
-      const resetPassword = this.forgottenPasswordRepository.create({ email, resetToken: token })
-      return await this.forgottenPasswordRepository.save(resetPassword);
+      throw new HttpException('User not found', HttpStatus.FOUND)
+    }
+  }
+
+  async changePassword(email: string, token: string, newPassword: string): Promise<any> {
+    const user = await this.usersRepository.findOne({ where: { email } });
+    if (user) {
+      if (user.passwordResetToken === token) {
+        user.password = newPassword;
+        await this.usersRepository.save(user);
+        return {
+          success: true,
+          massage: "Password successfully changed"
+        };
+      } else {
+        return {
+          success: false,
+          massage: "Password change unsuccessful"
+        };
+      }
+    } else {
+      throw new HttpException('User Not Found', HttpStatus.FOUND)
     }
   }
 

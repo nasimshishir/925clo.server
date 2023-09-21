@@ -19,6 +19,9 @@ export class Users {
     @Column()
     emailVerified: boolean;
 
+    @Column({ nullable: true },)
+    passwordResetToken: string;
+
     @OneToOne(() => StyleProfile, styleProfile => styleProfile.user)
     styleProfile: StyleProfile;
 

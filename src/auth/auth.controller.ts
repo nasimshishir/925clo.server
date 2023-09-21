@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Request, UseGuards, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query, Request, UseGuards, ValidationPipe } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
@@ -29,4 +29,13 @@ export class AuthController {
     return await this.authService.refreshToken(request.user);
   }
 
+  @Get('request-reset-password/:email')
+  async requestResetPassword(@Param('email') email: string): Promise<any> {
+    return await this.authService.requestPasswordReset(email)
+  }
+
+  @Get('reset-password/:email')
+  async resetPassword(@Param('email') email: string, @Query('token') token: string, @Body('password') passowrd: string) {
+
+  }
 }

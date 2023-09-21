@@ -12,7 +12,7 @@ export class EmailService {
             to: email,
             from: 'get@952clo.com',
             subject: 'Email Verification',
-            template: 'welcome',
+            template: 'welcome'
         }
 
         await this.mailerService.sendMail(message).catch((err) => {
@@ -22,7 +22,17 @@ export class EmailService {
 
     }
 
-    async sendResetPasswordEmail(email: string, resetToken: string) {
-        return email;
+    async sendResetPasswordEmail(email: string, resetToken: string,) {
+        const message = {
+            to: email,
+            from: 'get@952clo.com',
+            subject: 'Reset Password',
+            template: 'reset-password'
+        }
+
+        await this.mailerService.sendMail(message).catch((err) => {
+            console.error(err);
+        });
+        return 'passowrd reset mail send success'
     }
 }

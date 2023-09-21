@@ -56,11 +56,17 @@ export class AuthService {
 
     }
 
-    async requestPasswordReset(email: string): Promise<void> {
+    async requestPasswordReset(email: string): Promise<any> {
         const resetToken = crypto.randomBytes(20).toString('hex');
         await this.usersService.saveResetToken(email, resetToken);
-        await this.emailService.sendResetPasswordEmail(email, resetToken);
+        return await this.emailService.sendResetPasswordEmail(email, resetToken);
     }
 
+    async passwordReset(email: string, token: string, newPassword: string): Promise<any> {
+        const verified = await this.usersService.changePassword(email, token, newPassword)
+        if (verified) {
+
+        }
+    }
 
 }
