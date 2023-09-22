@@ -1,8 +1,8 @@
 import { Wishlist } from "src/users/entities/wishlist.entity";
-import { Column, CreateDateColumn, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn } from "typeorm";
 import { Colors } from "./color.entity";
 import { ProductBrands } from "./product-brand.entity";
-import { Availability } from "./availability.entity";
+import { Sizes } from "./size.entity";
 
 @Entity()
 export class Products {
@@ -31,9 +31,6 @@ export class Products {
     @ManyToOne(() => ProductBrands, brands => brands.product)
     brand: ProductBrands;
 
-    @ManyToOne(() => Availability, availableSizes => availableSizes.product)
-    availableSizes: Availability
-
     @Column()
     price: string;
 
@@ -45,6 +42,10 @@ export class Products {
 
     @Column({ unique: true })
     product_url: string;
+
+    @ManyToMany(() => Sizes, sizes => sizes.product)
+    @JoinTable()
+    sizes: Sizes[]
 
     @CreateDateColumn()
     createdAt: Timestamp;

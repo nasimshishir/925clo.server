@@ -58,15 +58,11 @@ export class AuthService {
 
     async requestPasswordReset(email: string): Promise<any> {
         const resetToken = crypto.randomBytes(20).toString('hex');
-        await this.usersService.saveResetToken(email, resetToken);
-        return await this.emailService.sendResetPasswordEmail(email, resetToken);
+        return await this.usersService.saveResetToken(email, resetToken);
+        // return await this.emailService.sendResetPasswordEmail(email, resetToken);
     }
 
-    async passwordReset(email: string, token: string, newPassword: string): Promise<any> {
-        const verified = await this.usersService.changePassword(email, token, newPassword)
-        if (verified) {
-
-        }
+    async passwordResetByToken(email: string, token: string, newPassword: string): Promise<any> {
+        return await this.usersService.changePasswordByToken(email, token, newPassword)
     }
-
 }

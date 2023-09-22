@@ -12,7 +12,7 @@ export class ProductsService {
     @InjectRepository(Products) private usersRepository: Repository<Products>,
   ) { }
 
-  async create(productDetails: CreateProductDto) {
+  async createProduct(productDetails: CreateProductDto) {
     const newProduct = this.usersRepository.create(productDetails);
     return await this.usersRepository.save(newProduct);
   }

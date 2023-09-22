@@ -71,11 +71,12 @@ export class UsersService {
     }
   }
 
-  async changePassword(email: string, token: string, newPassword: string): Promise<any> {
+  async changePasswordByToken(email: string, token: string, newPassword: string): Promise<any> {
     const user = await this.usersRepository.findOne({ where: { email } });
     if (user) {
       if (user.passwordResetToken === token) {
         user.password = newPassword;
+        user.passwordResetToken = null;
         await this.usersRepository.save(user);
         return {
           success: true,
@@ -84,7 +85,7 @@ export class UsersService {
       } else {
         return {
           success: false,
-          massage: "Password change unsuccessful"
+          massage: "Token Expired"
         };
       }
     } else {

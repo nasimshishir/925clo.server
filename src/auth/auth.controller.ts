@@ -35,7 +35,7 @@ export class AuthController {
   }
 
   @Get('reset-password/:email')
-  async resetPassword(@Param('email') email: string, @Query('token') token: string, @Body('password') passowrd: string) {
-
+  async resetPassword(@Param('email') email: string, @Query('t') token: string, @Body('password') password: string) {
+    return await this.authService.passwordResetByToken(email, token, password);
   }
 }
