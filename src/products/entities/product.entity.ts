@@ -11,7 +11,7 @@ export class Products {
     id: number;
 
     @Column({ nullable: true })
-    product_id: string;
+    product_id: number;
 
     @Column()
     product_title: string;
@@ -46,6 +46,12 @@ export class Products {
     @ManyToMany(() => Sizes, sizes => sizes.product)
     @JoinTable()
     sizes: Sizes[]
+
+    @Column()
+    occasion: string;
+
+    @Column()
+    season: string;
 
     @CreateDateColumn()
     createdAt: Timestamp;

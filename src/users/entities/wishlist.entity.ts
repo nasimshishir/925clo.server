@@ -14,7 +14,7 @@ export class Wishlist {
     @Column()
     type: 'single' | 'set';
 
-    @Column()
+    @Column({ nullable: true })
     setId: number;
 
     @ManyToOne(() => Products, products => products.wishlist)

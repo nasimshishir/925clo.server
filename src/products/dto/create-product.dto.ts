@@ -1,41 +1,30 @@
-import { IsNotEmpty } from "class-validator";
-import { Sizes } from "../entities/size.entity";
-import { Colors } from "../entities/color.entity";
-
 export class CreateProductDto {
 
-    product_id: string;
+    product_id: number;
 
-    @IsNotEmpty()
     product_title: string;
 
-    @IsNotEmpty()
     description: string;
 
-    @IsNotEmpty()
     image: string;
 
-    @IsNotEmpty()
     price: string;
 
-    @IsNotEmpty()
     product_category: string;
 
-    @IsNotEmpty()
-    primaryColor: Colors;
+    color: { primary: string, secondary?: string }[];
 
-    @IsNotEmpty()
-    secondaryColor: Colors;
-
-    @IsNotEmpty()
     type: string;
 
-    @IsNotEmpty()
     gender: string;
 
-    @IsNotEmpty()
     product_url: string;
 
-    @IsNotEmpty()
-    sizes: Sizes[];
+    sizes: { size: string, stock: boolean }[];
+
+    occasion: string;
+
+    brand: string;
+
+    season: string
 }

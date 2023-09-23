@@ -1,0 +1,493 @@
+[
+    {
+        "product_id": 1,
+        "product_title": "Adidas Originals Superstar Sneakers - Unisex - White/Black - UK 38",
+        "description": "The iconic Superstar sneakers in a classic white and black colorway. Featuring a leather upper and the signature rubber shell toe.",
+        "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/49358cfc3745489ab631a7c100e8592b_9366/Superstar_Shoes_White_C77124_01_standard.jpg",
+        "price": "80.00",
+        "product_category": "",
+        "type": "Footwear",
+        "gender": "unisex",
+        "brand": "Adidas Originals",
+        "color": [
+            {
+                "primary": "White"
+            },
+            {
+                "secondary": "Black"
+            }
+        ],
+        "season": "summer",
+        "sizes": [
+            {
+                "size": "UK 38",
+                "stock": true
+            },
+            {
+                "size": "UK 39",
+                "stock": true
+            },
+            {
+                "size": "UK 40",
+                "stock": true
+            },
+            {
+                "size": "UK 41",
+                "stock": false
+            },
+            {
+                "size": "UK 42",
+                "stock": false
+            },
+            {
+                "size": "UK 43",
+                "stock": false
+            },
+            {
+                "size": "UK 44",
+                "stock": false
+            }
+        ],
+        "product_url": "https://www.adidas.com/us/superstar-shoes/C77124.html",
+        "occasion": "Everyday Wear"
+    },
+    {
+        "product_id": 2,
+        "product_title": "Levi's 501 Original Fit Jeans - Men - Blue - 32W x 32L",
+        "description": "A classic pair of jeans with a straight leg and regular fit. Made from durable denim that gets better with age.",
+        "image": "https://www.levi.com/on/demandware.static/-/Sites-levis-products/default/dwf8c5b4d5/images/hi-res/005010063.jpg",
+        "price": "59.50",
+        "product_category": "",
+        "type": "Bottom",
+        "gender": "male",
+        "brand": "Levi's",
+        "color": [
+            {
+                "primary": "Blue"
+            }
+        ],
+        "season": "winter",
+        "sizes": [
+            {
+                "size": "xs",
+                "stock": false
+            },
+            {
+                "size": "s",
+                "stock": true
+            },
+            {
+                "size": "m",
+                "stock": true
+            },
+            {
+                "size": "l",
+                "stock": true
+            },
+            {
+                "size": "xl",
+                "stock": false
+            },
+            {
+                "size": "xxl",
+                "stock": false
+            }
+        ],
+        "product_url": "https://www.levi.com/US/en_US/clothing/men/jeans/501-original-fit-jeans/p/005010063",
+        "occasion": "Casual"
+    },
+    {
+        "product_id": 3,
+        "product_title": "Fossil Gen 5 Carlyle HR Smartwatch - Smoke Stainless Steel",
+        "description": "Smartwatches powered with Wear OS by Google work with iPhone and Android Phones. Case size: 44mm; Band size: 22mm; interchangeable with all Fossil 22mm bands.",
+        "image": "https://www.fossil.com/on/demandware.static/-/Library-Sites-FossilSharedLibrary/default/dw630a80f6/fossil/zoom/C0V4V_000.jpg",
+        "price": "295.00",
+        "product_category": "",
+        "type": "Accessories",
+        "gender": "unisex",
+        "brand": "Fossil",
+        "color": [
+            {
+                "primary": "Black"
+            }
+        ],
+        "season": "autumn",
+        "sizes": [],
+        "product_url": "https://www.fossil.com/en-us/products/gen-5-carlyle-hr-smoke-stainless-steel/FTW4024.html",
+        "occasion": "Tech Enthusiast"
+    },
+    {
+        "product_id": 4,
+        "product_title": "Ralph Lauren Slim Fit Polo Shirt - Women - Red - Small",
+        "description": "Introduced in 1972, our polo shirt now comes in a variety of colors and styles but remains just as iconic as the original. This version is made from breathable cotton piqué and cut for a slim fit.",
+        "image": "https://media.endclothing.com/media/f_auto,q_auto,w_760,h_760/prodmedia/media/catalog/product/1/2/12-04-2021_ralphlauren_classicslimfitpoloshirt_red_white.jpg",
+        "price": "98.50",
+        "product_category": "",
+        "type": "Apparel",
+        "gender": "female",
+        "brand": "Ralph Lauren",
+        "color": [
+            {
+                "primary": "Red"
+            }
+        ],
+        "season": "spring",
+        "sizes": [
+            {
+                "size": "Small",
+                "stock": true
+            },
+            {
+                "size": "Medium",
+                "stock": true
+            },
+            {
+                "size": "Large",
+                "stock": false
+            }
+        ],
+        "product_url": "https://www.ralphlauren.com/women-clothing-polo-shirts/classic-fit-mesh-polo-shirt/0031631891.html",
+        "occasion": "Casual"
+    },
+    {
+        "product_id": 5,
+        "product_title": "Sony WH-1000XM4 Wireless Noise Cancelling Headphones",
+        "description": "Industry-leading noise canceling with Dual Noise Sensor technology. Speak-to-chat technology automatically reduces volume during conversations.",
+        "image": "https://www.sony.co.in/image/5458ac0d004b3171769b457f8880351e?fmt=png-alpha&wid=757",
+        "price": "349.99",
+        "product_category": "",
+        "type": "Gadget",
+        "gender": "unisex",
+        "brand": "Sony",
+        "color": [
+            {
+                "primary": "Black"
+            }
+        ],
+        "season": "summer",
+        "sizes": [],
+        "product_url": "https://www.sony.com/electronics/headband-headphones/wh-1000xm4",
+        "occasion": "Music and Calls"
+    },
+    {
+        "product_id": 6,
+        "product_title": "Tommy Hilfiger Classic Fit T-Shirt - Men - Navy - Large",
+        "description": "A classic tee that never goes out of style. Soft and comfortable, this crewneck t-shirt is made from pure cotton and features the iconic Tommy Hilfiger logo.",
+        "image": "https://images.tommy.com/is/image/tommy/09T3422_420_alternate2?wid=800&hei=1050&fmt=jpg",
+        "price": "29.50",
+        "product_category": "",
+        "type": "Top",
+        "gender": "male",
+        "brand": "Tommy Hilfiger",
+        "color": [
+            {
+                "primary": "Navy"
+            }
+        ],
+        "season": "winter",
+        "sizes": [
+            {
+                "size": "xs",
+                "stock": false
+            },
+            {
+                "size": "s",
+                "stock": true
+            },
+            {
+                "size": "m",
+                "stock": true
+            },
+            {
+                "size": "l",
+                "stock": true
+            },
+            {
+                "size": "xl",
+                "stock": false
+            },
+            {
+                "size": "xxl",
+                "stock": false
+            }
+        ],
+        "product_url": "https://uk.tommy.com/classic-fit-t-shirt-09t3422",
+        "occasion": "Casual"
+    },
+    {
+        "product_id": 7,
+        "product_title": "Nike Air Max 270 React Sneakers - Women - Pink/Beige - US 8",
+        "description": "A blend of art and innovation, the Air Max 270 React features a lightweight design and responsive cushioning. The colors are inspired by different periods of modern art.",
+        "image": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/0c2eadd4-b7a1-4160-8f7a-aa9b044fbf04/air-max-270-react-shoe-4nJmHH.jpg",
+        "price": "150.00",
+        "product_category": "",
+        "type": "Footwear",
+        "gender": "female",
+        "brand": "Nike",
+        "color": [
+            {
+                "primary": "Pink"
+            },
+            {
+                "secondary": "Beige"
+            }
+        ],
+        "season": "spring",
+        "sizes": [
+            {
+                "size": "US 7",
+                "stock": false
+            },
+            {
+                "size": "US 8",
+                "stock": true
+            },
+            {
+                "size": "US 9",
+                "stock": true
+            }
+        ],
+        "product_url": "https://www.nike.com/t/air-max-270-react-shoe-4nJmHH",
+        "occasion": "Everyday Wear"
+    },
+    {
+        "product_id": 8,
+        "product_title": "UGG Classic Mini II Boots - Women - Chestnut - US 9",
+        "description": "A beloved classic, the UGG Classic Mini II is crafted from plush sheepskin for ultimate comfort. It's the perfect boot for staying cozy and stylish all winter long.",
+        "image": "https://www.ugg.com/on/demandware.static/-/Sites-UGGCA-Library/default/dw1b565027/images/hi-res/1016222_900.jpg",
+        "price": "150.00",
+        "product_category": "",
+        "type": "Footwear",
+        "gender": "female",
+        "brand": "UGG",
+        "color": [
+            {
+                "primary": "Chestnut"
+            }
+        ],
+        "season": "winter",
+        "sizes": [
+            {
+                "size": "US 8",
+                "stock": false
+            },
+            {
+                "size": "US 9",
+                "stock": true
+            },
+            {
+                "size": "US 10",
+                "stock": false
+            }
+        ],
+        "product_url": "https://www.ugg.com/ca/en/p/1016222.html",
+        "occasion": "Cozy Fits"
+    },
+    {
+        "product_id": 9,
+        "product_title": "Coach Signature Coated Canvas Wallet - Men - Brown",
+        "description": "A sleek and practical wallet crafted from Coach's signature coated canvas. It features multiple card slots, a bill compartment, and a coin pocket.",
+        "image": "https://media.coach.com/is/image/Coach/75110_brn_a0?wid=570&hei=570&fmt=jpeg",
+        "price": "150.00",
+        "product_category": "",
+        "type": "Accessory",
+        "gender": "male",
+        "brand": "Coach",
+        "color": [
+            {
+                "primary": "Brown"
+            }
+        ],
+        "season": "all",
+        "sizes": [],
+        "product_url": "https://www.coach.com/coach-signature-coated-canvas-slim-wallet/75110.html",
+        "occasion": "Everyday Use"
+    },
+    {
+        "product_id": 10,
+        "product_title": "Calvin Klein Monogram Logo Sweatshirt - Women - Grey - Medium",
+        "description": "A comfortable sweatshirt with a monogram logo print. Crafted from soft cotton blend fabric, this sweatshirt is perfect for casual days.",
+        "image": "https://m.media-amazon.com/images/I/71AOSQPOOlL._AC_UY695_.jpg",
+        "price": "69.50",
+        "product_category": "",
+        "type": "Top",
+        "gender": "female",
+        "brand": "Calvin Klein",
+        "color": [
+            {
+                "primary": "Grey"
+            }
+        ],
+        "season": "all",
+        "sizes": [
+            {
+                "size": "Small",
+                "stock": true
+            },
+            {
+                "size": "Medium",
+                "stock": true
+            },
+            {
+                "size": "Large",
+                "stock": false
+            }
+        ],
+        "product_url": "https://www.calvinklein.us/en/p/monogram-logo-sweatshirt-54515502",
+        "occasion": "Casual"
+    },
+    {
+        "product_id": 11,
+        "product_title": "Adidas Originals California T-Shirt - Men - Green - Medium",
+        "description": "A classic tee with retro style. Features the iconic 3-Stripes on the sleeves and a Trefoil logo on the chest.",
+        "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/d7eb6e1eb15a47dab7f5ac4901339545_9366/California_Tee_Green_DT9930_01_laydown.jpg",
+        "price": "30.00",
+        "product_category": "",
+        "type": "Top",
+        "gender": "male",
+        "brand": "Adidas Originals",
+        "color": [
+            {
+                "primary": "Green"
+            }
+        ],
+        "season": "summer",
+        "sizes": [
+            {
+                "size": "xs",
+                "stock": false
+            },
+            {
+                "size": "s",
+                "stock": true
+            },
+            {
+                "size": "m",
+                "stock": true
+            },
+            {
+                "size": "l",
+                "stock": true
+            },
+            {
+                "size": "xl",
+                "stock": false
+            },
+            {
+                "size": "xxl",
+                "stock": false
+            }
+        ],
+        "product_url": "https://www.adidas.com/us/california-tee/DT9930.html",
+        "occasion": "Casual"
+    },
+    {
+        "product_id": 12,
+        "product_title": "Michael Kors Jet Set Travel Large Tote - Women - Brown",
+        "description": "A spacious tote designed for the modern woman. Crafted in signature logo-print canvas with leather trim, this bag offers both style and functionality.",
+        "image": "https://www.michaelkors.global/static/website/images/global/paris-mdm-jetset-large-gusset-cns-brown_0121x1200.jpg",
+        "price": "298.00",
+        "product_category": "",
+        "type": "Accessory",
+        "gender": "female",
+        "brand": "Michael Kors",
+        "color": [
+            {
+                "primary": "Brown"
+            }
+        ],
+        "season": "all",
+        "sizes": [],
+        "product_url": "https://www.michaelkors.global/en_GB/product/jet-set-large-travel-tote/_/R-W9SV4TGE2R",
+        "occasion": "Everyday Use"
+    },
+    {
+        "product_id": 13,
+        "product_title": "Under Armour Project Rock 3 Training Shoes - Men - Black - US 11",
+        "description": "Designed in collaboration with Dwayne 'The Rock' Johnson, these training shoes offer stability, support, and cushioning for your toughest workouts.",
+        "image": "https://underarmour.scene7.com/is/image/Underarmour/3023004-002_HERO_1",
+        "price": "140.00",
+        "product_category": "",
+        "type": "Footwear",
+        "gender": "male",
+        "brand": "Under Armour",
+        "color": [
+            {
+                "primary": "Black"
+            }
+        ],
+        "season": "all",
+        "sizes": [
+            {
+                "size": "US 10",
+                "stock": true
+            },
+            {
+                "size": "US 11",
+                "stock": true
+            },
+            {
+                "size": "US 12",
+                "stock": false
+            }
+        ],
+        "product_url": "https://www.underarmour.com/en-us/p/ua-project-rock-3-training-shoes/3023004.html",
+        "occasion": "Fitness"
+    },
+    {
+        "product_id": 14,
+        "product_title": "Kate Spade New York Cameron Medium Satchel - Women - Pink",
+        "description": "A versatile satchel designed for the modern woman. Crafted in crossgrain leather with a structured silhouette, this bag offers both style and functionality.",
+        "image": "https://www.katespade.co.uk/on/demandware.static/-/Sites-ksuk-master-catalog/default/dw90be3a3b/images/2/s/pxru7951_654.jpg",
+        "price": "298.00",
+        "product_category": "",
+        "type": "Accessory",
+        "gender": "female",
+        "brand": "Kate Spade New York",
+        "color": [
+            {
+                "primary": "Pink"
+            }
+        ],
+        "season": "spring",
+        "sizes": [],
+        "product_url": "https://www.katespade.co.uk/uk/en-gb/medium-satchel/pxru7951.html",
+        "occasion": "Everyday Use"
+    },
+    {
+        "product_id": 15,
+        "product_title": "Vans Old Skool Sneakers - Unisex - Black/White - US 9",
+        "description": "The classic Old Skool sneaker in a timeless black and white colorway. Featuring a suede and canvas upper and the signature rubber waffle outsole.",
+        "image": "https://images.vans.com/is/image/Vans/EYEBWW-HERO?$583x583$",
+        "price": "60.00",
+        "product_category": "",
+        "type": "Footwear",
+        "gender": "unisex",
+        "brand": "Vans",
+        "color": [
+            {
+                "primary": "Black"
+            },
+            {
+                "primary": "White"
+            }
+        ],
+        "season": "all",
+        "sizes": [
+            {
+                "size": "US 8",
+                "stock": true
+            },
+            {
+                "size": "US 9",
+                "stock": true
+            },
+            {
+                "size": "US 10",
+                "stock": false
+            }
+        ],
+        "product_url": "https://www.vans.com/shop/old-skool-black-white",
+        "occasion": "Everyday Wear"
+    }
+]
