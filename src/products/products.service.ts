@@ -16,13 +16,19 @@ export class ProductsService {
 
 
   async createProduct(productDetails: CreateProductParams[]) {
-    productDetails?.map((item) => {
-      // item.color.map((color))
+    return productDetails?.map((item) => {
+
+      const itemSizes = item.sizes.map((size) => {
+
+      })
+
       const product = {
         product_id: item.product_id,
-        primaryColor: item.color.map((color) => { return color.primary })
+        primaryColor: item.color[0].primary,
+        secondaryColor: item.color[0].secondary,
+        sizes: itemSizes
       }
-      console.log(product);
+      return product;
 
     })
 
