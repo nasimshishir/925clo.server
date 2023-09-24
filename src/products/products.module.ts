@@ -8,7 +8,7 @@ import { Colors } from './entities/color.entity';
 import { Sizes } from './entities/size.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Products, ProductBrands, Colors, Sizes,])],
+  imports: [TypeOrmModule.forFeature([Products, ProductBrands, Colors, Sizes])],
   controllers: [ProductsController],
   providers: [ProductsService]
 })

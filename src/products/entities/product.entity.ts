@@ -13,13 +13,13 @@ export class Products {
     @Column({ nullable: true })
     product_id: number;
 
-    @Column()
+    @Column({ nullable: true })
     product_title: string;
 
-    @Column()
+    @Column({ nullable: true })
     description: string;
 
-    @Column()
+    @Column({ nullable: true })
     image: string;
 
     @ManyToOne(() => Colors, primaryColor => primaryColor.product)
@@ -31,13 +31,13 @@ export class Products {
     @ManyToOne(() => ProductBrands, brands => brands.product)
     brand: ProductBrands;
 
-    @Column()
+    @Column({ nullable: true })
     price: string;
 
     @Column({ nullable: true })
     product_category: string;
 
-    @Column()
+    @Column({ nullable: true })
     gender: string;
 
     @Column({ unique: true })
@@ -47,10 +47,10 @@ export class Products {
     @JoinTable()
     sizes: Sizes[]
 
-    @Column()
+    @Column({ nullable: true })
     occasion: string;
 
-    @Column()
+    @Column({ nullable: true })
     season: string;
 
     @CreateDateColumn()
