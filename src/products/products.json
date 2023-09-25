@@ -9,14 +9,10 @@
         "type": "Footwear",
         "gender": "unisex",
         "brand": "Adidas Originals",
-        "color": [
-            {
-                "primary": "White"
-            },
-            {
-                "secondary": "Black"
-            }
-        ],
+        "color": {
+            "primary": "White",
+            "secondary": "Black"
+        },
         "season": "summer",
         "sizes": [
             {
@@ -61,11 +57,9 @@
         "type": "Bottom",
         "gender": "male",
         "brand": "Levi's",
-        "color": [
-            {
-                "primary": "Blue"
-            }
-        ],
+        "color": {
+            "primary": "Blue"
+        },
         "season": "winter",
         "sizes": [
             {
@@ -106,11 +100,9 @@
         "type": "Accessories",
         "gender": "unisex",
         "brand": "Fossil",
-        "color": [
-            {
-                "primary": "Black"
-            }
-        ],
+        "color": {
+            "primary": "Black"
+        },
         "season": "autumn",
         "sizes": [],
         "product_url": "https://www.fossil.com/en-us/products/gen-5-carlyle-hr-smoke-stainless-steel/FTW4024.html",
@@ -126,11 +118,9 @@
         "type": "Apparel",
         "gender": "female",
         "brand": "Ralph Lauren",
-        "color": [
-            {
-                "primary": "Red"
-            }
-        ],
+        "color": {
+            "primary": "Red"
+        },
         "season": "spring",
         "sizes": [
             {
@@ -159,11 +149,9 @@
         "type": "Gadget",
         "gender": "unisex",
         "brand": "Sony",
-        "color": [
-            {
-                "primary": "Black"
-            }
-        ],
+        "color": {
+            "primary": "Black"
+        },
         "season": "summer",
         "sizes": [],
         "product_url": "https://www.sony.com/electronics/headband-headphones/wh-1000xm4",
@@ -179,11 +167,9 @@
         "type": "Top",
         "gender": "male",
         "brand": "Tommy Hilfiger",
-        "color": [
-            {
-                "primary": "Navy"
-            }
-        ],
+        "color": {
+            "primary": "Navy"
+        },
         "season": "winter",
         "sizes": [
             {
@@ -224,14 +210,10 @@
         "type": "Footwear",
         "gender": "female",
         "brand": "Nike",
-        "color": [
-            {
-                "primary": "Pink"
-            },
-            {
-                "secondary": "Beige"
-            }
-        ],
+        "color": {
+            "primary": "Pink",
+            "secondary": "Beige"
+        },
         "season": "spring",
         "sizes": [
             {
@@ -260,11 +242,9 @@
         "type": "Footwear",
         "gender": "female",
         "brand": "UGG",
-        "color": [
-            {
-                "primary": "Chestnut"
-            }
-        ],
+        "color": {
+            "primary": "Chestnut"
+        },
         "season": "winter",
         "sizes": [
             {
@@ -293,11 +273,9 @@
         "type": "Accessory",
         "gender": "male",
         "brand": "Coach",
-        "color": [
-            {
-                "primary": "Brown"
-            }
-        ],
+        "color": {
+            "primary": "Brown"
+        },
         "season": "all",
         "sizes": [],
         "product_url": "https://www.coach.com/coach-signature-coated-canvas-slim-wallet/75110.html",
@@ -313,11 +291,9 @@
         "type": "Top",
         "gender": "female",
         "brand": "Calvin Klein",
-        "color": [
-            {
-                "primary": "Grey"
-            }
-        ],
+        "color": {
+            "primary": "Grey"
+        },
         "season": "all",
         "sizes": [
             {
@@ -346,11 +322,9 @@
         "type": "Top",
         "gender": "male",
         "brand": "Adidas Originals",
-        "color": [
-            {
-                "primary": "Green"
-            }
-        ],
+        "color": {
+            "primary": "Green"
+        },
         "season": "summer",
         "sizes": [
             {
@@ -391,11 +365,9 @@
         "type": "Accessory",
         "gender": "female",
         "brand": "Michael Kors",
-        "color": [
-            {
-                "primary": "Brown"
-            }
-        ],
+        "color": {
+            "primary": "Brown"
+        },
         "season": "all",
         "sizes": [],
         "product_url": "https://www.michaelkors.global/en_GB/product/jet-set-large-travel-tote/_/R-W9SV4TGE2R",
@@ -411,11 +383,9 @@
         "type": "Footwear",
         "gender": "male",
         "brand": "Under Armour",
-        "color": [
-            {
-                "primary": "Black"
-            }
-        ],
+        "color": {
+            "primary": "Black"
+        },
         "season": "all",
         "sizes": [
             {
@@ -444,11 +414,9 @@
         "type": "Accessory",
         "gender": "female",
         "brand": "Kate Spade New York",
-        "color": [
-            {
-                "primary": "Pink"
-            }
-        ],
+        "color": {
+            "primary": "Pink"
+        },
         "season": "spring",
         "sizes": [],
         "product_url": "https://www.katespade.co.uk/uk/en-gb/medium-satchel/pxru7951.html",
@@ -464,14 +432,10 @@
         "type": "Footwear",
         "gender": "unisex",
         "brand": "Vans",
-        "color": [
-            {
-                "primary": "Black"
-            },
-            {
-                "primary": "White"
-            }
-        ],
+        "color": {
+            "primary": "Black",
+            "secondary": "White"
+        },
         "season": "all",
         "sizes": [
             {

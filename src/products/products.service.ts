@@ -21,7 +21,7 @@ export class ProductsService {
   ) { }
 
 
-  async destructureProducts(productDetails: CreateProductParams[]) {
+  destructureProducts(productDetails: CreateProductParams[]) {
     productDetails.forEach(async (item) => {
 
       // const itemsizes = item.sizes.forEach((size) => {
@@ -45,10 +45,21 @@ export class ProductsService {
       //   return { productPrimaryColor, productSecondaryColor }
       // })
 
-      //   const product = {
-      //     product_id: item.product_id,
-      //     // sizes: itemsizes
-      //   }
+      const product = {
+        product_id: item.product_id,
+        product_title: item.product_title,
+        description: item.description,
+        image: item.image,
+        price: item.price,
+        product_category: item.product_category,
+        gender: item.gender,
+        product_url: item.product_url,
+        primaryColor: item.color.primary,
+        secondaryColor: item.color.secondary,
+        brand: item.brand,
+        season: item.season,
+        // sizes: itemsizes
+      }
       //   console.log(product);
 
       //   return product;

@@ -12,7 +12,7 @@ export class CreateProductDto {
 
     product_category: string;
 
-    color: { primary: string, secondary?: string }[];
+    color: { primary: string, secondary?: string };
 
     type: string;
 
