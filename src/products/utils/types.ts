@@ -20,7 +20,7 @@ export type CreateProductParams = {
 
     product_url?: string;
 
-    sizes?: { size?: string, stock?: boolean }[];
+    sizes?: { size: string, stock: boolean }[];
 
     occasion?: string;
 

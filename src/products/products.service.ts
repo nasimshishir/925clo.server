@@ -20,31 +20,23 @@ export class ProductsService {
     @InjectRepository(ProductBrands) private brandsRepository: Repository<ProductBrands>,
   ) { }
 
-
   destructureProducts(productDetails: CreateProductParams[]) {
+
     productDetails.forEach(async (item) => {
 
-      // const itemsizes = item.sizes.forEach((size) => {
-      //   async function dbCheck(size: { size: string, stock: boolean }) {
-      //     return await this.sizesRepository.findOne({ size: size.size })
-      //   }
-      //   const productSizes = dbCheck(size);
-      //   return productSizes;
-      // })
+      const itemsizes = item.sizes.forEach(async (size) => {
+        const productSizes = await this.sizesRepository.findOne({ where: { size: size.size } });
+        if (!productSizes) {
+          const addedSizes = await this.sizesRepository.save({ size: size.size })
+        }
+        console.log(productSizes, 'inside single sizes');
 
-      // const itemColors = item.color.forEach((color) =>  {
-      //   async function dbCheckPrimary(color: { primary?: string, secondary?: string }) {
-      //     return await this.sizesRepository.findOne({ color: color.primary })
-      //   }
-      //   async function dbCheckSecondary(color: { primary?: string, secondary?: string }) {
-      //     return await this.sizesRepository.findOne({ color: color.secondary })
-      //   }
+        return productSizes;
+      })
 
-      //   const productPrimaryColor = dbCheckPrimary(color);
-      //   const productSecondaryColor = dbCheckSecondary(color);
-      //   return { productPrimaryColor, productSecondaryColor }
-      // })
+      console.log(itemsizes, 'array of sizes');
 
+      // Product DTO
       const product = {
         product_id: item.product_id,
         product_title: item.product_title,
@@ -60,11 +52,7 @@ export class ProductsService {
         season: item.season,
         // sizes: itemsizes
       }
-      //   console.log(product);
-
-      //   return product;
-
-      // }
+      console.log(product);
     })
 
   }
