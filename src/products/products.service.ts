@@ -6,6 +6,8 @@ import { Repository } from 'typeorm';
 import * as products from './products.json'
 import { CreateProductParams } from './utils/types';
 import { Sizes } from './entities/size.entity';
+import { Colors } from './entities/color.entity';
+import { ProductBrands } from './entities/product-brand.entity';
 
 
 @Injectable()
@@ -14,28 +16,49 @@ export class ProductsService {
   constructor(
     @InjectRepository(Products) private productRepository: Repository<Products>,
     @InjectRepository(Sizes) private sizesRepository: Repository<Sizes>,
+    @InjectRepository(Colors) private colorsRepository: Repository<Colors>,
+    @InjectRepository(ProductBrands) private brandsRepository: Repository<ProductBrands>,
   ) { }
 
 
-  async createProduct(productDetails: CreateProductParams[]) {
-    return productDetails?.map((item) => {
+  async destructureProducts(productDetails: CreateProductParams[]) {
+    productDetails.forEach(async (item) => {
 
-      const itemSizes = item.sizes.forEach((size) => {
-        async function dbCheck(size: { size: string, stock: boolean }): Promise<Sizes> {
-          return await this.sizesRepository.findOne({})
-        }
-      })
+      // const itemsizes = item.sizes.forEach((size) => {
+      //   async function dbCheck(size: { size: string, stock: boolean }) {
+      //     return await this.sizesRepository.findOne({ size: size.size })
+      //   }
+      //   const productSizes = dbCheck(size);
+      //   return productSizes;
+      // })
 
-      const product = {
-        product_id: item.product_id,
-        primaryColor: item.color[0].primary,
-        secondaryColor: item.color[0].secondary,
-      }
-      console.log(product);
+      // const itemColors = item.color.forEach((color) =>  {
+      //   async function dbCheckPrimary(color: { primary?: string, secondary?: string }) {
+      //     return await this.sizesRepository.findOne({ color: color.primary })
+      //   }
+      //   async function dbCheckSecondary(color: { primary?: string, secondary?: string }) {
+      //     return await this.sizesRepository.findOne({ color: color.secondary })
+      //   }
 
-      return product;
+      //   const productPrimaryColor = dbCheckPrimary(color);
+      //   const productSecondaryColor = dbCheckSecondary(color);
+      //   return { productPrimaryColor, productSecondaryColor }
+      // })
 
+      //   const product = {
+      //     product_id: item.product_id,
+      //     // sizes: itemsizes
+      //   }
+      //   console.log(product);
+
+      //   return product;
+
+      // }
     })
+
+  }
+
+  async createProduct() {
 
   }
 

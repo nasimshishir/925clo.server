@@ -1,30 +1,30 @@
 export type CreateProductParams = {
 
-    product_id: number;
+    product_id?: number;
 
-    product_title: string;
+    product_title?: string;
 
-    description: string;
+    description?: string;
 
-    image: string;
+    image?: string;
 
-    price: string;
+    price?: string;
 
-    product_category: string;
+    product_category?: string;
 
-    color: { primary?: string, secondary?: string }[];
+    color?: { primary?: string, secondary?: string }[];
 
-    type: string;
+    type?: string;
 
-    gender: string;
+    gender?: string;
 
-    product_url: string;
+    product_url?: string;
 
-    sizes: { size: string, stock: boolean }[];
+    sizes?: { size?: string, stock?: boolean }[];
 
-    occasion: string;
+    occasion?: string;
 
-    brand: string;
+    brand?: string;
 
-    season: string
+    season?: string
 }

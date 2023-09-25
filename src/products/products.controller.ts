@@ -9,7 +9,7 @@ export class ProductsController {
 
   @Post('add')
   create(@Body() createProductDto: CreateProductDto[]) {
-    return this.productsService.createProduct(createProductDto);
+    return this.productsService.destructureProducts(createProductDto);
   }
 
   @Get('all')
