@@ -3,7 +3,7 @@ import { UpdateProductDto } from './dto/update-product.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Products } from './entities/product.entity';
 import { Repository } from 'typeorm';
-import * as products from './products.json'
+// import * as products from './products.json'
 import { CreateProductParams } from './utils/types';
 import { Sizes } from './entities/size.entity';
 import { Colors } from './entities/color.entity';
@@ -22,39 +22,44 @@ export class ProductsService {
 
   destructureProducts(productDetails: CreateProductParams[]) {
 
-    productDetails.forEach(async (item) => {
+    const products = productDetails.reduce((sizes, product) => {
+      const allSizes = product.sizes.reduce((sizeP, sizeC) => {
+        if (sizeC.stock) {
 
-      const itemsizes = item.sizes.forEach(async (size) => {
-        const productSizes = await this.sizesRepository.findOne({ where: { size: size.size } });
-        if (!productSizes) {
-          const addedSizes = await this.sizesRepository.save({ size: size.size })
+          const sizeObject = {
+            product_id: product.product_id,
+            size: sizeC.size,
+          };
+          sizeP.push(sizeObject);
         }
-        console.log(productSizes, 'inside single sizes');
+        return sizeP;
+      }, []);
 
-        return productSizes;
-      })
+      return sizes;
+    }, []);
 
-      console.log(itemsizes, 'array of sizes');
+    // const products = productDetails.forEach(product => {
+    //   const sizes = product.sizes.reduce((size) => {
 
-      // Product DTO
-      const product = {
-        product_id: item.product_id,
-        product_title: item.product_title,
-        description: item.description,
-        image: item.image,
-        price: item.price,
-        product_category: item.product_category,
-        gender: item.gender,
-        product_url: item.product_url,
-        primaryColor: item.color.primary,
-        secondaryColor: item.color.secondary,
-        brand: item.brand,
-        season: item.season,
-        // sizes: itemsizes
-      }
-      console.log(product);
-    })
+    //   } )
+    // })
 
+    // Product DTO
+    // const product = {
+    //   product_id: item.product_id,
+    //   product_title: item.product_title,
+    //   description: item.description,
+    //   image: item.image,
+    //   price: item.price,
+    //   product_category: item.product_category,
+    //   gender: item.gender,
+    //   product_url: item.product_url,
+    //   primaryColor: item.color?.primary,
+    //   secondaryColor: item.color?.secondary,
+    //   brand: item.brand,
+    //   season: item.season
+    // }
+    return products;
   }
 
   async createProduct() {
@@ -62,7 +67,7 @@ export class ProductsService {
   }
 
   findAll() {
-    return products;
+    return;
   }
 
   findOne(param: number | string) {
