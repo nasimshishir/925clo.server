@@ -8,18 +8,13 @@ export class ProductsController {
   constructor(private readonly productsService: ProductsService) { }
 
   @Post('add')
-  create(@Body() createProductDto: CreateProductDto[]) {
+  create(@Body() createProductDto: any[]) {
     return this.productsService.destructureProducts(createProductDto);
   }
 
   @Get('all')
   findAll() {
     return this.productsService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.productsService.findOne(+id);
   }
 
   @Patch(':id')

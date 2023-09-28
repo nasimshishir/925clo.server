@@ -53,6 +53,9 @@ export class Products {
     @Column({ nullable: true })
     season: string;
 
+    @Column({ nullable: true })
+    type: string;
+
     @CreateDateColumn()
     createdAt: Timestamp;
 

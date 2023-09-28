@@ -20,46 +20,34 @@ export class ProductsService {
     @InjectRepository(ProductBrands) private brandsRepository: Repository<ProductBrands>,
   ) { }
 
-  destructureProducts(productDetails: CreateProductParams[]) {
+  async destructureProducts(productDetails: CreateProductParams[]) {
 
-    const products = productDetails.reduce((sizes, product) => {
-      const allSizes = product.sizes.reduce((sizeP, sizeC) => {
-        if (sizeC.stock) {
+    const allProducts = productDetails.reduce((products, product) => {
+      const singleProducts = {
+        product_id: product.product_id,
+        product_title: product.product_title,
+        description: product.description,
+        image: product.image,
+        price: product.price,
+        product_category: product.product_category,
+        type: product.type,
+        gender: product.gender,
+        product_url: product.product_url,
+        occasion: product.occasion,
+        season: product.season,
+        primaryColor: null,
+        secondaryColor: null,
+        sizes: [],
+        brand: null,
+      }
 
-          const sizeObject = {
-            product_id: product.product_id,
-            size: sizeC.size,
-          };
-          sizeP.push(sizeObject);
-        }
-        return sizeP;
-      }, []);
+      products.push(singleProducts)
+      return products;
+    }, [])
 
-      return sizes;
-    }, []);
 
-    // const products = productDetails.forEach(product => {
-    //   const sizes = product.sizes.reduce((size) => {
+    return allProducts;
 
-    //   } )
-    // })
-
-    // Product DTO
-    // const product = {
-    //   product_id: item.product_id,
-    //   product_title: item.product_title,
-    //   description: item.description,
-    //   image: item.image,
-    //   price: item.price,
-    //   product_category: item.product_category,
-    //   gender: item.gender,
-    //   product_url: item.product_url,
-    //   primaryColor: item.color?.primary,
-    //   secondaryColor: item.color?.secondary,
-    //   brand: item.brand,
-    //   season: item.season
-    // }
-    return products;
   }
 
   async createProduct() {
@@ -68,10 +56,6 @@ export class ProductsService {
 
   findAll() {
     return;
-  }
-
-  findOne(param: number | string) {
-    return `This action returns a #${param} product`;
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {
