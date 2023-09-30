@@ -22,8 +22,8 @@ export class ProductsService {
 
   async destructureProducts(productDetails: CreateProductParams[]) {
 
-    const allProducts = productDetails.reduce((products, product) => {
-      const singleProducts = {
+    const allProducts = productDetails.map(async (product) => {
+      const singleProduct = {
         product_id: product.product_id,
         product_title: product.product_title,
         description: product.description,
@@ -40,22 +40,28 @@ export class ProductsService {
         sizes: [],
         brand: null,
       }
+      const newProduct = this.productRepository.create(singleProduct);
 
-      products.push(singleProducts)
-      return products;
-    }, [])
+      product.sizes.map(async (size) => {
+        if (size.stock) {
+          const sizeDB = await this.sizesRepository.findOne({ where: { size: size.size } })
+          // return sizeDB.product.push(newProduct)
+          return newProduct.sizes.push(sizeDB)
+        }
+      })
 
+      return await this.productRepository.save(newProduct);
+      // return singleProduct
 
-    return allProducts;
-
+    })
   }
 
   async createProduct() {
 
   }
 
-  findAll() {
-    return;
+  async findAll(gender, type, size,): Promise<Products[]> {
+    return await this.productRepository.find({ where: { gender: `${gender}` }, });
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {

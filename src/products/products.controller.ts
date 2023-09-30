@@ -13,8 +13,8 @@ export class ProductsController {
   }
 
   @Get('all')
-  findAll() {
-    return this.productsService.findAll();
+  findAll(gender, type, size) {
+    return this.productsService.findAll(gender, type, size);
   }
 
   @Patch(':id')

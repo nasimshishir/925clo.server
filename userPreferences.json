@@ -1,0 +1,96 @@
+[
+    {
+        "location": "london,uk",
+        "gender": "female",
+        "top": "m",
+        "bottom": "m",
+        "footwear": "uk 38",
+        "brands": [
+            "ralph lauren",
+            "burberry",
+            "prada",
+            "dolce & gabbana",
+            "dior",
+            "armani",
+            "valentino",
+            "levi's",
+            "yves saint laurent",
+            "louis vuitton",
+            "balenciaga",
+            "gucci",
+            "chanel",
+            "nike",
+            "hermès",
+            "adidas",
+            "h&m",
+            "fendi",
+            "calvin klein",
+            "moncler",
+            "givenchy",
+            "versace",
+            "hugo boss",
+            "zara"
+        ],
+        "colors": [
+            "red",
+            "green",
+            "blue",
+            "brown",
+            "orange"
+        ],
+        "occasion": "date night",
+        "weather": {
+            "main": "rain",
+            "description": "light rain",
+            "temperature": "26.5",
+            "season": "autumn"
+        }
+    },
+    {
+        "location": "southall,uk",
+        "gender": "male",
+        "top": "xxl",
+        "bottom": "xl",
+        "footwear": "uk 41",
+        "brands": [
+            "ralph lauren",
+            "burberry",
+            "prada",
+            "dolce & gabbana",
+            "dior",
+            "armani",
+            "valentino",
+            "levi's",
+            "yves saint laurent",
+            "louis vuitton",
+            "balenciaga",
+            "gucci",
+            "chanel",
+            "nike",
+            "hermès",
+            "adidas",
+            "h&m",
+            "fendi",
+            "calvin klein",
+            "moncler",
+            "givenchy",
+            "versace",
+            "hugo boss",
+            "zara"
+        ],
+        "colors": [
+            "red",
+            "green",
+            "blue",
+            "brown",
+            "orange"
+        ],
+        "occasion": "occasion wear",
+        "weather": {
+            "main": "cloudy",
+            "description": "cloudy",
+            "temperature": "26.5",
+            "season": "autumn"
+        }
+    }
+]
