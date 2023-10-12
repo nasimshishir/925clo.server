@@ -3,6 +3,7 @@ import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, ManyToOne, One
 import { Colors } from "./color.entity";
 import { ProductBrands } from "./product-brand.entity";
 import { Sizes } from "./size.entity";
+import { Occasions } from "./occasion.entity";
 
 @Entity()
 export class Products {
@@ -47,8 +48,9 @@ export class Products {
     @JoinTable()
     sizes: Sizes[]
 
-    @Column({ nullable: true })
-    occasion: string;
+    @ManyToMany(() => Occasions, occasion => occasion.product)
+    @JoinTable()
+    occasion: Occasions[];
 
     @Column({ nullable: true })
     season: string;

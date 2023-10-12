@@ -22,7 +22,7 @@ export type CreateProductParams = {
 
     sizes?: { size: string, stock: boolean }[];
 
-    occasion?: string;
+    occasion?: string[];
 
     brand?: string;
 

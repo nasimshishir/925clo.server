@@ -6,9 +6,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductBrands } from './entities/product-brand.entity';
 import { Colors } from './entities/color.entity';
 import { Sizes } from './entities/size.entity';
+import { Occasions } from './entities/occasion.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Products, ProductBrands, Colors, Sizes])],
+  imports: [TypeOrmModule.forFeature([Products, ProductBrands, Colors, Sizes, Occasions])],
   controllers: [ProductsController],
   providers: [ProductsService]
 })
