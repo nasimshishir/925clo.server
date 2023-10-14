@@ -109,9 +109,11 @@ export class ProductsService {
   }
 
   async findAll(type: string[], size: string[], color: string[], brand: string[]): Promise<Products[]> {
-    const products = await this.productRepository.find({ where: { type: `${type}` } })
+    if (type.length > 0) {
+      let products = await this.productRepository.find({ where: { type: `${type}` } })
+    }
 
-    return products;
+    return;
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {

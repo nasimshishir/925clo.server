@@ -13,14 +13,19 @@ export class ProductsController {
   }
 
   @Get(':all')
-  async findAll(@Query('gender') gender: string, @Query('type') type: string, @Query('size') size: string, @Query('color') color: string) {
-    const products = await this.productsService.findAll(gender, type, size, color);
-    if (products) {
-      return {
-        success: true,
-        data: products
-      }
+  async findAll(@Query('brand') brand: string, @Query('type') type: string, @Query('size') size: string, @Query('color') color: string) {
+    let brands = []
+    if (brand.includes(',')) {
+      const allBrands = brand.split(',');
+      allBrands.forEach(brandItem => {
+        brands.push(brandItem)
+      })
     }
+    const types = type.split(',');
+    const sizes = size.split(',');
+    const colors = color.split(',');
+    console.log(brands);
+
   }
 
   @Patch(':id')
