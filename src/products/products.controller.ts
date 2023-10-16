@@ -14,17 +14,19 @@ export class ProductsController {
 
   @Get(':all')
   async findAll(@Query('brand') brand: string, @Query('type') type: string, @Query('size') size: string, @Query('color') color: string) {
-    let brands = []
+
     if (brand.includes(',')) {
-      const allBrands = brand.split(',');
-      allBrands.forEach(brandItem => {
-        brands.push(brandItem)
-      })
+      const brands = brand.split(',');
     }
-    const types = type.split(',');
-    const sizes = size.split(',');
-    const colors = color.split(',');
-    console.log(brands);
+    if (type.includes(',')) {
+      const types = type.split(',');
+    }
+    if (size.includes(',')) {
+      const sizes = size.split(',');
+    }
+    if (color.includes(',')) {
+      const colors = color.split(',');
+    }
 
   }
 

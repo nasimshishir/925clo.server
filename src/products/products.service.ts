@@ -108,12 +108,15 @@ export class ProductsService {
     );
   }
 
-  async findAll(type: string[], size: string[], color: string[], brand: string[]): Promise<Products[]> {
-    if (type.length > 0) {
-      let products = await this.productRepository.find({ where: { type: `${type}` } })
+  async findAll(size: string[], color: string[], brand: string[]): Promise<Products[]> {
+    let products: Products[]
+    if (size.length === 0) {
+      products = await this.productRepository.find()
+    } else if (size.length === 1) {
+      products = await this.productRepository.find({ relations: {} })
     }
 
-    return;
+    return products;
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {
