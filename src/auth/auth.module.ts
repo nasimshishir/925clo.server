@@ -11,11 +11,12 @@ import { JwtStrategy } from './strategies/jwt.stategy';
 import jwtConfig from 'jwtconfig';
 import { RefreshJwtStrategy } from './strategies/refreshToken.strategy';
 import { EmailService } from 'src/email/email.service';
+import { UserInteractions } from 'src/users/entities/inreractions.entity';
 
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Users]),
+    TypeOrmModule.forFeature([Users, UserInteractions]),
     PassportModule,
     JwtModule.register(jwtConfig)
   ],

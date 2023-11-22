@@ -3,7 +3,6 @@ import { UpdateProductDto } from './dto/update-product.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Products } from './entities/product.entity';
 import { Repository } from 'typeorm';
-// import * as products from './products.json'
 import { CreateProductParams } from './utils/types';
 import { Sizes } from './entities/size.entity';
 import { Colors } from './entities/color.entity';

@@ -9,43 +9,23 @@
         "type": "Footwear",
         "gender": "unisex",
         "brand": "Adidas Originals",
-        "color": {
-            "primary": "White",
-            "secondary": "Black"
-        },
-        "season": "summer",
+        "color": "white",
+        "season": [
+            "summer"
+        ],
         "sizes": [
-            {
-                "size": "UK 38",
-                "stock": true
-            },
-            {
-                "size": "UK 39",
-                "stock": true
-            },
-            {
-                "size": "UK 40",
-                "stock": true
-            },
-            {
-                "size": "UK 41",
-                "stock": false
-            },
-            {
-                "size": "UK 42",
-                "stock": false
-            },
-            {
-                "size": "UK 43",
-                "stock": false
-            },
-            {
-                "size": "UK 44",
-                "stock": false
-            }
+            "UK38",
+            "UK39",
+            "UK40",
+            "UK41",
+            "UK42",
+            "UK43",
+            "UK44"
         ],
         "product_url": "https://www.adidas.com/us/superstar-shoes/C77124.html",
-        "occasion": "Everyday Wear"
+        "occasion": [
+            "Everyday Wear"
+        ]
     },
     {
         "product_id": 2,
@@ -57,35 +37,16 @@
         "type": "Bottom",
         "gender": "male",
         "brand": "Levi's",
-        "color": {
-            "primary": "Blue"
-        },
+        "color": "Blue",
         "season": "winter",
         "sizes": [
-            {
-                "size": "xs",
-                "stock": false
-            },
-            {
-                "size": "s",
-                "stock": true
-            },
-            {
-                "size": "m",
-                "stock": true
-            },
-            {
-                "size": "l",
-                "stock": true
-            },
-            {
-                "size": "xl",
-                "stock": false
-            },
-            {
-                "size": "xxl",
-                "stock": false
-            }
+            "xs",
+            "s",
+            "m",
+            "l",
+            "xl",
+            "2xl",
+            "3xl"
         ],
         "product_url": "https://www.levi.com/US/en_US/clothing/men/jeans/501-original-fit-jeans/p/005010063",
         "occasion": "Casual"
@@ -100,10 +61,8 @@
         "type": "Accessories",
         "gender": "unisex",
         "brand": "Fossil",
-        "color": {
-            "primary": "Black"
-        },
-        "season": "autumn",
+        "color": "Black",
+        "season": [],
         "sizes": [],
         "product_url": "https://www.fossil.com/en-us/products/gen-5-carlyle-hr-smoke-stainless-steel/FTW4024.html",
         "occasion": "Tech Enthusiast"
@@ -123,18 +82,13 @@
         },
         "season": "spring",
         "sizes": [
-            {
-                "size": "Small",
-                "stock": true
-            },
-            {
-                "size": "Medium",
-                "stock": true
-            },
-            {
-                "size": "Large",
-                "stock": false
-            }
+            "xs",
+            "s",
+            "m",
+            "l",
+            "xl",
+            "2xl",
+            "3xl"
         ],
         "product_url": "https://www.ralphlauren.com/women-clothing-polo-shirts/classic-fit-mesh-polo-shirt/0031631891.html",
         "occasion": "Casual"

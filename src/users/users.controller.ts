@@ -27,4 +27,9 @@ export class UsersController {
   async getStyleProfile(@Param('id', ParseIntPipe) id: number) {
     return await this.usersService.findOneUser(id);
   }
+
+  @Get('interactions/:id')
+  async getUserInteractions(@Param('id', ParseIntPipe) id: number) {
+    return await this.usersService.userInteractions(id)
+  }
 }

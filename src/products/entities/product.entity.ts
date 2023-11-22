@@ -7,7 +7,6 @@ import { Occasions } from "./occasion.entity";
 import { UserInteractions } from "src/users/entities/inreractions.entity";
 import { Seasons } from "./season.entity";
 import { ProductTypes } from "./type.entity";
-import { type } from "os";
 
 @Entity()
 export class Products {
@@ -46,7 +45,7 @@ export class Products {
     @Column({ unique: true })
     product_url: string;
 
-    @ManyToMany(() => Sizes, sizes => sizes.product)
+    @ManyToMany(() => Sizes, sizes => sizes.product, { nullable: true })
     @JoinTable({ name: 'product_sizes' })
     sizes: Sizes[]
 

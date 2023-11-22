@@ -17,6 +17,6 @@ export class UserInteractions {
     product: Products
 
     @Column()
-    type: boolean
+    type: 'liked' | 'disliked'
 
 }
