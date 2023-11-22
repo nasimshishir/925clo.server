@@ -10,7 +10,7 @@ export class Colors {
     @Column()
     color: string;
 
-    @OneToMany(() => Products, product => product.primaryColor && product.secondaryColor)
+    @OneToMany(() => Products, product => product.color)
     product: Products[];
 
     // @OneToMany(() => Products, product => product.secondaryColor)

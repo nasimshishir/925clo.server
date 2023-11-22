@@ -1,6 +1,6 @@
 export type CreateProductParams = {
 
-    product_id?: number;
+    product_id?: string;
 
     product_title?: string;
 
@@ -10,9 +10,9 @@ export type CreateProductParams = {
 
     price?: string;
 
-    product_category?: string;
+    currency: string;
 
-    color?: { primary?: string, secondary?: string };
+    color?: string;
 
     type?: string;
 
@@ -26,5 +26,5 @@ export type CreateProductParams = {
 
     brand?: string;
 
-    season?: string
+    season?: string[];
 }

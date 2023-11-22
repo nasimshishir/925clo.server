@@ -9,6 +9,8 @@ import { Sizes } from './entities/size.entity';
 import { Colors } from './entities/color.entity';
 import { ProductBrands } from './entities/product-brand.entity';
 import { Occasions } from './entities/occasion.entity';
+import { Seasons } from './entities/season.entity';
+import { ProductTypes } from './entities/type.entity';
 
 
 @Injectable()
@@ -20,6 +22,8 @@ export class ProductsService {
     @InjectRepository(Colors) private colorsRepository: Repository<Colors>,
     @InjectRepository(ProductBrands) private brandsRepository: Repository<ProductBrands>,
     @InjectRepository(Occasions) private occasionsRepository: Repository<Occasions>,
+    @InjectRepository(Seasons) private seasonsRepository: Repository<Seasons>,
+    @InjectRepository(ProductTypes) private typesRepository: Repository<ProductTypes>,
   ) { }
 
   async createProduct(productDetails: CreateProductParams[]) {
@@ -32,13 +36,12 @@ export class ProductsService {
           description: product.description,
           image: product.image,
           price: product.price,
-          product_category: product.product_category,
-          type: product.type,
+          currency: product.currency,
+          type: null,
           gender: product.gender,
           product_url: product.product_url,
-          season: product.season,
-          primaryColor: null,
-          secondaryColor: null,
+          season: [],
+          color: null,
           sizes: [],
           brand: null,
           occasion: [],
@@ -59,32 +62,12 @@ export class ProductsService {
           newProduct.occasion.push(occasionDB)
         }
 
-        const primaryColor = async (product: CreateProductParams): Promise<Colors> => {
-          if (product.color.primary) {
-            const colorDB = await this.colorsRepository.findOne({ where: { color: product.color.primary } })
-            if (!colorDB) {
-              const primaryColor = this.colorsRepository.create({ color: product.color.primary })
-              return await this.colorsRepository.save(primaryColor);
-            } else {
-              return colorDB;
-            }
-          } else {
-            return null
-          }
+        for (let i = 0; i < product.season.length; i++) {
+          let season = product.season[i];
+          const seasonDB = await this.seasonsRepository.findOne({ where: { season: season.toLowerCase() } })
+          newProduct.season.push(seasonDB)
         }
-        const secondaryColor = async (product: CreateProductParams): Promise<Colors> => {
-          if (product.color.secondary) {
-            const colorDB = await this.colorsRepository.findOne({ where: { color: product.color.secondary } })
-            if (!colorDB) {
-              const secondaryColor = this.colorsRepository.create({ color: product.color.secondary })
-              return await this.colorsRepository.save(secondaryColor);
-            } else {
-              return colorDB;
-            }
-          } else {
-            return null
-          }
-        }
+
         const productBrand = async (product: CreateProductParams): Promise<ProductBrands> => {
           if (product.brand) {
             const brandDB = await this.brandsRepository.findOne({ where: { brand: product.brand } })
@@ -98,9 +81,36 @@ export class ProductsService {
             return null
           }
         }
-        newProduct.primaryColor = await primaryColor(product)
-        newProduct.secondaryColor = await secondaryColor(product)
+
+        const productType = async (product: CreateProductParams): Promise<ProductTypes> => {
+          if (product.type) {
+            const typeDB = await this.typesRepository.findOne({ where: { type: product.brand } })
+            if (!typeDB) {
+              const productBrand = this.typesRepository.create({ type: product.brand })
+              return await this.typesRepository.save(productBrand);
+            } else {
+              return typeDB;
+            }
+          } else {
+            return null
+          }
+        }
+        const productColor = async (product: CreateProductParams): Promise<Colors> => {
+          if (product.color) {
+            const colorDB = await this.colorsRepository.findOne({ where: { color: product.color } })
+            if (!colorDB) {
+              const productColor = this.colorsRepository.create({ color: product.color })
+              return await this.colorsRepository.save(productColor);
+            } else {
+              return colorDB;
+            }
+          } else {
+            return null
+          }
+        }
         newProduct.brand = await productBrand(product)
+        newProduct.type = await productType(product)
+        newProduct.color = await productColor(product)
 
 
         await this.productRepository.save(newProduct);
@@ -108,15 +118,16 @@ export class ProductsService {
     );
   }
 
-  async findAll(size: string[], color: string[], brand: string[]): Promise<Products[]> {
-    let products: Products[]
-    if (size.length === 0) {
-      products = await this.productRepository.find()
-    } else if (size.length === 1) {
-      products = await this.productRepository.find({ relations: {} })
-    }
+  async findAll(): Promise<Products[]> {
+    // size?: string[], color?: string[], brand?: string[]
+    // let products: Products[]
+    // if (size.length === 0) {
+    //   products = await this.productRepository.find()
+    // } else if (size.length === 1) {
+    //   products = await this.productRepository.find({ relations: {} })
+    // }
 
-    return products;
+    return await this.productRepository.find();
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {

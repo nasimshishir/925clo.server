@@ -8,10 +8,15 @@ export class EmailController {
     ) { }
 
     @Get('confirm_email')
-    async sendEmail(@Query('email') email: string) {
+    async verifyEmail(@Query('email') email: string) {
         console.log(email, 'controller');
 
-        return this.emailService.sendConfirmationEmail(email)
+        return await this.emailService.sendConfirmationEmail(email)
+    }
+
+    @Get('reset_password')
+    async resetPassword(@Query('email') email: string, @Query('resetToken') resetToken: string) {
+        return await this.emailService.sendResetPasswordEmail(email, resetToken);
     }
 
 }

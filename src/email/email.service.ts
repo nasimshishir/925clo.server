@@ -33,6 +33,6 @@ export class EmailService {
         await this.mailerService.sendMail(message).catch((err) => {
             console.error(err);
         });
-        return 'passowrd reset mail send success'
+        return 'password reset mail send success'
     }
 }

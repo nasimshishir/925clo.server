@@ -6,6 +6,4 @@ const jwtConfig: JwtModuleOptions = {
     secret: `${process.env.ACCESS_KEY}`,
     signOptions: { expiresIn: '60s' }
 }
-console.log(process.env.ACCESS_KEY);
-
 export default jwtConfig;

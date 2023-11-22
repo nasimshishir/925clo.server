@@ -16,7 +16,7 @@ export class AuthService {
         private readonly emailService: EmailService
     ) { }
 
-    async validateUser(username: string, pass: string): Promise<{
+    async validateUser(email: string, pass: string): Promise<{
         id: number;
         email: string;
         emailVerified: boolean;
@@ -24,7 +24,7 @@ export class AuthService {
         updateddAt: Timestamp;
     } | null> {
 
-        const user = await this.usersService.searchOne(username);
+        const user = await this.usersService.searchOne(email);
 
         if (user) {
             const matched = comparePasswords(pass, user.password);
@@ -47,7 +47,7 @@ export class AuthService {
     }
 
 
-    async refreshToken(user) {
+    async refreshToken(user: Users) {
         const payload = {
             user: user.email,
             name: user.name
