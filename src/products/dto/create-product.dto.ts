@@ -2,17 +2,17 @@ import { Seasons } from "../entities/season.entity";
 
 export class CreateProductDto {
 
-    product_id: string;
-
     product_title: string;
 
     description: string;
+
+    currency: string;
 
     image: string;
 
     price: string;
 
-    currency: string
+    brand: string;
 
     color: string;
 
@@ -25,8 +25,6 @@ export class CreateProductDto {
     sizes: { size: string, stock: boolean }[];
 
     occasion: string[];
-
-    brand: string;
 
     season: string[];
 }

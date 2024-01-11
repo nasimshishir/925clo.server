@@ -14,13 +14,13 @@ export class Products {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    product_id: string;
+    // @Column()
+    // product_id: string;
 
     @Column()
     product_title: string;
 
-    @Column()
+    @Column({ type: "varchar", length: 1000 })
     description: string;
 
     @Column()
@@ -42,22 +42,22 @@ export class Products {
     @Column()
     gender: string;
 
-    @Column({ unique: true })
+    @Column({ unique: true, type: "varchar", length: 400 })
     product_url: string;
 
     @ManyToMany(() => Sizes, sizes => sizes.product, { nullable: true })
     @JoinTable({ name: 'product_sizes' })
     sizes: Sizes[]
 
-    @ManyToMany(() => Occasions, occasion => occasion.product)
+    @ManyToMany(() => Occasions, occasion => occasion.product, { nullable: true })
     @JoinTable({ name: 'product_occasions' })
     occasion: Occasions[];
 
-    @ManyToMany(() => Seasons, season => season.product)
+    @ManyToMany(() => Seasons, season => season.product, { nullable: true })
     @JoinTable({ name: 'product_seasons' })
     season: Seasons[];
 
-    @ManyToOne(() => ProductTypes, type => type.product)
+    @ManyToOne(() => ProductTypes, type => type.product, { nullable: true })
     @JoinColumn()
     type: ProductTypes;
 

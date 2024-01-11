@@ -9,7 +9,10 @@ export class ProductsController {
 
   @Post('add')
   async create(@Body() createProductDto: CreateProductDto[]) {
-    return await this.productsService.createProduct(createProductDto);
+    await this.productsService.createProduct(createProductDto);
+    return {
+      status: "Products added successfully",
+    }
   }
 
   @Get('all')
