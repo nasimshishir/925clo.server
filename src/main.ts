@@ -9,7 +9,7 @@ async function bootstrap() {
     origin: 'http://localhost:3000',
     // Other CORS options can be set here (e.g., allowedHeaders, exposedHeaders, etc.)
   });
-  app.use(cookieParser())
+  // app.use(cookieParser())
   await app.listen(8000);
 }
 bootstrap();

@@ -4,6 +4,9 @@ import { Injectable } from '@nestjs/common';
 export class AppService {
   getHello(): any {
     const date = new Date();
-    return date;
+    return {
+      date,
+      status: "App is running on port : 8000"
+    }
   }
 }

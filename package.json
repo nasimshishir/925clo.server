@@ -29,7 +29,7 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/passport": "^9.0.3",
     "@nestjs/platform-express": "^9.0.0",
-    "@nestjs/typeorm": "^9.0.1",
+    "@nestjs/typeorm": "^10.0.1",
     "@types/nodemailer": "^6.4.8",
     "bcrypt": "^5.1.0",
     "class-transformer": "^0.5.1",
@@ -37,7 +37,7 @@
     "cookie-parser": "^1.4.6",
     "ejs": "^3.1.9",
     "handlebars": "^4.7.7",
-    "mysql2": "^3.3.2",
+    "mysql": "^2.18.1",
     "nodemailer": "^6.9.3",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
@@ -45,7 +45,7 @@
     "pug": "^3.0.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
-    "typeorm": "^0.3.16",
+    "typeorm": "^0.3.19",
     "watch-run": "^1.2.5"
   },
   "devDependencies": {
