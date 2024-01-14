@@ -8,7 +8,7 @@ export class UserInteractionsController {
     private readonly userInteractionsService: UserInteractionsService
   ) { }
 
-  @Post('interactions/add')
+  @Post('add')
   async createInteractions(@Body() CreateUserInteractionsData: CreateUserInteractionsDto) {
     const newUserInteraction = await this.userInteractionsService.createUserInteractions(CreateUserInteractionsData)
     return {
@@ -18,7 +18,7 @@ export class UserInteractionsController {
     };
   }
 
-  @Get('interactions/:id')
+  @Get(':id')
   async getUserInteractions(@Param('id', ParseIntPipe) id: number) {
     return await this.userInteractionsService.getUserInteractions(id)
   }
