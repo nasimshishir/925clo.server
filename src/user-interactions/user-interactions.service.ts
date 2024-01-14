@@ -16,9 +16,9 @@ export class UserInteractionsService {
     ) { }
 
 
-    async createUserInteractions(CreateUserInteractionsData: CreateUserInteractionParams) {
-        const user = await this.usersService.findOneUser(CreateUserInteractionsData.userId)
-        const product = await this.productsService.findOneProduct(CreateUserInteractionsData.productId)
+    async createUserInteractions(CreateUserInteractionsinfo: CreateUserInteractionParams) {
+        const user = await this.usersService.findOneUser(CreateUserInteractionsinfo.userId)
+        const product = await this.productsService.findOneProduct(CreateUserInteractionsinfo.productId)
         if (!user) {
             throw new HttpException('User not found', HttpStatus.NOT_FOUND)
         }
@@ -26,8 +26,8 @@ export class UserInteractionsService {
             throw new HttpException('Product not found', HttpStatus.NOT_FOUND)
         }
 
-        const newInteraction = await this.userInteractionsRepository.create(CreateUserInteractionsData)
-        return newInteraction;
+        const newInteraction = await this.userInteractionsRepository.create({ user, product, type: CreateUserInteractionsinfo.type })
+        return await this.userInteractionsRepository.save(newInteraction);
 
     }
 

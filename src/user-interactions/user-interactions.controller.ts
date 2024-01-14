@@ -11,11 +11,18 @@ export class UserInteractionsController {
   @Post('add')
   async createInteractions(@Body() CreateUserInteractionsData: CreateUserInteractionsDto) {
     const newUserInteraction = await this.userInteractionsService.createUserInteractions(CreateUserInteractionsData)
-    return {
-      status: HttpStatus.ACCEPTED,
-      message: "Interaction Saved Successfully",
-      newUserInteraction
-    };
+    if (newUserInteraction) {
+      return {
+        status: HttpStatus.ACCEPTED,
+        message: "Interaction Saved Successfully",
+        newUserInteraction
+      };
+    } else {
+      return {
+        status: HttpStatus.SERVICE_UNAVAILABLE,
+        message: "Interaction Save Unsuccessful",
+      }
+    }
   }
 
   @Get(':id')
