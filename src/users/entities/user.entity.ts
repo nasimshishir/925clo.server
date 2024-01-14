@@ -2,7 +2,7 @@ import { Wishlist } from "src/users/entities/wishlist.entity";
 import { Column, CreateDateColumn, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn } from "typeorm";
 import { StyleProfile } from "./style-profile.entity";
 import { EmailToken } from "./email-verification-token.entity";
-import { UserInteractions } from "./inreractions.entity";
+import { UserInteractions } from "../../user-interactions/entities/inreractions.entity";
 
 @Entity()
 export class Users {

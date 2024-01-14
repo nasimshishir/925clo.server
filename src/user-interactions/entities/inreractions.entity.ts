@@ -1,6 +1,6 @@
 import { Products } from "src/products/entities/product.entity";
 import { Column, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Users } from "./user.entity";
+import { Users } from "../../users/entities/user.entity";
 
 @Entity()
 export class UserInteractions {

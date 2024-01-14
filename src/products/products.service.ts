@@ -134,6 +134,12 @@ export class ProductsService {
     });
   }
 
+  async findOneProduct(id: number): Promise<Products> {
+    const product = await this.productRepository.findOne({ select: ['id'], where: { id } })
+    return product;
+  }
+
+
   update(id: number, updateProductDto: UpdateProductDto) {
     return `This action updates a #${id} product`;
   }

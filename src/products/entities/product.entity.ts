@@ -4,7 +4,7 @@ import { Colors } from "./color.entity";
 import { ProductBrands } from "./product-brand.entity";
 import { Sizes } from "./size.entity";
 import { Occasions } from "./occasion.entity";
-import { UserInteractions } from "src/users/entities/inreractions.entity";
+import { UserInteractions } from "src/user-interactions/entities/inreractions.entity";
 import { Seasons } from "./season.entity";
 import { ProductTypes } from "./type.entity";
 

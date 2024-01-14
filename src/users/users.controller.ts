@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Param, ParseIntPipe, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, ParseIntPipe, UseGuards, HttpStatus } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { JwtGuard } from 'src/auth/guards/jwt-auth.guard';
+import { CreateUserInteractionsDto } from '../user-interactions/dto/create-interactions.dto';
 
 @Controller('users')
 export class UsersController {
@@ -28,8 +29,5 @@ export class UsersController {
     return await this.usersService.findOneUser(id);
   }
 
-  @Get('interactions/:id')
-  async getUserInteractions(@Param('id', ParseIntPipe) id: number) {
-    return await this.usersService.userInteractions(id)
-  }
+
 }

@@ -1,16 +1,16 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateUserFormat, UserInteractionsFormat } from './utils/types';
+import { CreateUserFormat } from './utils/types';
 import { encodePassword } from 'src/auth/utils/bcrypt';
 import { Users } from './entities/user.entity';
-import { UserInteractions } from './entities/inreractions.entity';
+import { UserInteractions } from '../user-interactions/entities/inreractions.entity';
+import { ProductsService } from 'src/products/products.service';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(Users) private usersRepository: Repository<Users>,
-    @InjectRepository(UserInteractions) private userInteractionsRepository: Repository<UserInteractions>,
   ) { }
 
   async createUser(userDetails: CreateUserFormat) {
@@ -57,7 +57,7 @@ export class UsersService {
     if (user) {
       return user;
     } else {
-      throw new HttpException('User not found', HttpStatus.FOUND)
+      throw new HttpException('User not found', HttpStatus.NOT_FOUND)
     }
 
   }
@@ -91,31 +91,8 @@ export class UsersService {
         };
       }
     } else {
-      throw new HttpException('User Not Found', HttpStatus.FOUND)
+      throw new HttpException('User Not Found', HttpStatus.NOT_FOUND)
     }
   }
 
-  async userInteractions(id: number): Promise<UserInteractionsFormat | string> {
-    const userDB = await this.usersRepository.findOne({ where: { id } });
-    if (userDB) {
-      const liked_products = await this.userInteractionsRepository.createQueryBuilder()
-        .select(['product'])
-        .where("userId", { userId: userDB.id })
-        .where('type', { type: 'liked' })
-        .getMany()
-      const disliked_products = await this.userInteractionsRepository.createQueryBuilder()
-        .select(['product'])
-        .where("userId", { userId: userDB.id })
-        .where('type', { type: 'disliked' })
-        .getMany()
-
-      const userInteraction = {
-        liked_products,
-        disliked_products
-      }
-      return userInteraction;
-    } else {
-      throw new HttpException('User Not Found', HttpStatus.FOUND)
-    }
-  }
 }
