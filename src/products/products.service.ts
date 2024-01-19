@@ -118,7 +118,7 @@ export class ProductsService {
     );
   }
 
-  async findAll(): Promise<Products[]> {
+  async findAll(param): Promise<Products[]> {
     // size?: string[], color?: string[], brand?: string[]
     // let products: Products[]
     // if (size.length === 0) {
@@ -127,11 +127,38 @@ export class ProductsService {
     //   products = await this.productRepository.find({ relations: {} })
     // }
 
-    return await this.productRepository.find({
-      relations: [
-        "color"
-      ]
-    });
+    if (param === 'summer' || 'winter' || 'autumn' || 'spring') {
+      const season = await this.seasonsRepository.findOne({ where: { season: param } })
+      const products = await this.productRepository.find({
+        where: { season },
+        relations: [
+          "color", "type", "occasion", "brand"
+        ]
+      });
+      return products;
+
+    } else if (param === 'top' || 'bottom' || 'outerwear' || 'footwear' || 'accessories') {
+      const type = await this.typesRepository.findOne({ where: { type: param } })
+      const products = await this.productRepository.find({
+        where: { type },
+        relations: [
+          "color", "type", "occasion", "brand"
+        ]
+      });
+      return products;
+    } else if (param === 'everyday_wear' || 'date_night' || 'cozy_fits' || 'occasion_wear' || 'work_wear') {
+      const occasion = await this.occasionsRepository.findOne({ where: { occasion: param } })
+      const products = await this.productRepository.find({
+        where: { occasion },
+        relations: [
+          "color", "type", "occasion", "brand"
+        ]
+      });
+      return products;
+    }
+
+
+
   }
 
   async findOneProduct(id: number): Promise<Products> {

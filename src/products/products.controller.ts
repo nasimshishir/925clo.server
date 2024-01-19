@@ -15,8 +15,8 @@ export class ProductsController {
     }
   }
 
-  @Get('all')
-  async findAll(@Query('brand') brand: string, @Query('type') type: string, @Query('size') size: string, @Query('color') color: string) {
+  @Get(':category')
+  async findAll(@Param('category') category: string, @Query('brand') brand: string, @Query('type') type: string, @Query('size') size: string, @Query('color') color: string) {
 
     // if (brand.includes(',')) {
     //   const brands = brand.split(',');
@@ -31,7 +31,7 @@ export class ProductsController {
     //   const colors = color.split(',');
     // }
 
-    return await this.productsService.findAll()
+    return await this.productsService.findAll(category)
 
   }
 
