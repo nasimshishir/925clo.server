@@ -26,7 +26,7 @@ export class UserInteractionsService {
             throw new HttpException('Product not found', HttpStatus.NOT_FOUND)
         }
 
-        const newInteraction = await this.userInteractionsRepository.create({ user, product, type: CreateUserInteractionsinfo.type })
+        const newInteraction = this.userInteractionsRepository.create({ user, product, type: CreateUserInteractionsinfo.type })
         return await this.userInteractionsRepository.save(newInteraction);
 
     }

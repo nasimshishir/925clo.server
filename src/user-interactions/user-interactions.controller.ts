@@ -1,6 +1,7 @@
-import { Body, Controller, Get, HttpStatus, Param, ParseIntPipe, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Param, ParseIntPipe, Post, UseGuards } from '@nestjs/common';
 import { UserInteractionsService } from './user-interactions.service';
 import { CreateUserInteractionsDto } from 'src/user-interactions/dto/create-interactions.dto';
+import { JwtGuard } from 'src/auth/guards/jwt-auth.guard';
 
 @Controller('user-interactions')
 export class UserInteractionsController {
@@ -8,6 +9,7 @@ export class UserInteractionsController {
     private readonly userInteractionsService: UserInteractionsService
   ) { }
 
+  @UseGuards(JwtGuard)
   @Post('add')
   async createInteractions(@Body() CreateUserInteractionsData: CreateUserInteractionsDto) {
     const newUserInteraction = await this.userInteractionsService.createUserInteractions(CreateUserInteractionsData)

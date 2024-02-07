@@ -7,7 +7,7 @@ import { Timestamp } from 'typeorm';
 import { EmailService } from 'src/email/email.service';
 import * as crypto from 'crypto';
 
-
+const EXPIRE_TIME = 20 * 1000;
 @Injectable()
 export class AuthService {
     constructor(
@@ -43,14 +43,18 @@ export class AuthService {
         const refreshToken = this.jwtService.sign(payload, { expiresIn: '7d' })
         return {
             ...payload,
-            accessToken,
-            refreshToken
+            backendToken: {
+                accessToken,
+                refreshToken,
+                expiresIn: new Date().setTime(new Date().getTime() + EXPIRE_TIME),
+            }
         }
     }
 
 
     async refreshToken(user: Users) {
         const payload = {
+
             user: user.email,
             name: user.name
         };

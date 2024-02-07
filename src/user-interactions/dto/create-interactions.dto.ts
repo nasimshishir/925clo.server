@@ -8,8 +8,6 @@ export class CreateUserInteractionsDto {
     @IsNotEmpty()
     productId: number;
 
-    emailVerified: boolean;
-
     @IsNotEmpty()
     type: 'liked' | 'disliked'
 }
